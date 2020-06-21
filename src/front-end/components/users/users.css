@@ -5,6 +5,14 @@ body {
   .a{
       background-color:rgb(35, 47, 62)!important;
   }
+  .bloc-error{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .bloc-error p{
+    font-size: 13px;
+  }
   img{
       width: 80px !important;
       height: 28px !important;
@@ -13,6 +21,10 @@ body {
     display: flex;
     justify-content: space-around;
    
+}
+.input-add{
+  width: 426px;
+  padding-left: 06px;
 }
 .searchU{
   margin-top:15px ;

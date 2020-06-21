@@ -28,14 +28,6 @@
       "gmail": "us2@gmail.com",
       "password": "123",
       "name": "ranya"
-    },
-    {
-      "name": "aa",
-      "role": "user",
-      "lastname": "zz",
-      "gmail": "aa",
-      "password": "rr",
-      "id": 5
     }
   ]
 }
