@@ -1,0 +1,41 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "role": "admin",
+      "gmail": "ad@gmail.com",
+      "password": "aaa",
+      "name": "Meriem"
+    },
+    {
+      "name": "ahmed",
+      "role": "user",
+      "lastname": "gabsi",
+      "gmail": "us@gmail.com",
+      "password": "aaa",
+      "id": 2
+    },
+    {
+      "id": 3,
+      "role": "user",
+      "gmail": "us1@gmail.com",
+      "password": "aaa",
+      "name": "khaled"
+    },
+    {
+      "id": 4,
+      "role": "user",
+      "gmail": "us2@gmail.com",
+      "password": "123",
+      "name": "ranya"
+    },
+    {
+      "name": "aa",
+      "role": "user",
+      "lastname": "zz",
+      "gmail": "aa",
+      "password": "rr",
+      "id": 5
+    }
+  ]
+}
