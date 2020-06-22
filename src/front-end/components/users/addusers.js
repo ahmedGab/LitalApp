@@ -10,14 +10,14 @@ const ModalExampleCloseIcon = () => {
   const [email,setEmail]= useState("")
   const [password,setPassword]= useState("")
   const dispatch = useDispatch();
-
+/*
   function vericationName(){
     if (/^[a-z]{0,15}$/i.test (name))
     return true 
     else 
     return false
   }
-
+*/
  
 
   return(
@@ -36,12 +36,16 @@ const ModalExampleCloseIcon = () => {
     <Form>
       
     <Form.Group unstackable widths={2}>
-      <Form.Input label='Nom' placeholder='Nom' type="name"  onChange={e => setName(e.target.value)}  />
-      <Form.Input label='Prénom' placeholder='Prénom' onChange={e => setLastName(e.target.value)} />
+      <Form.Input label='Nom' placeholder='Nom' type="name" 
+       onChange={e => setName(e.target.value)}  />
+      <Form.Input label='Prénom' placeholder='Prénom' 
+      onChange={e => setLastName(e.target.value)} />
     </Form.Group>
     <Form.Group widths={2}>
-      <Form.Input label='E-mail' placeholder='Email' type="email" onChange={e => setEmail(e.target.value)} />
-      <Form.Input label='Mot de passe' placeholder='Mot de passe' onChange={e => setPassword(e.target.value)} />
+      <Form.Input label='E-mail' placeholder='Email' type="email" 
+      onChange={e => setEmail(e.target.value)} />
+      <Form.Input label='Mot de passe' placeholder='Mot de passe'
+       onChange={e => setPassword(e.target.value)} />
     </Form.Group>
     </Form>
 
@@ -51,7 +55,8 @@ const ModalExampleCloseIcon = () => {
       <Button  color='red'>
         <Icon name='remove'  /> Sortir 
       </Button>
-      <Button color='blue' onClick={()=>{dispatch(AddUsers("user",name,lastName,email,password));vericationName()}}>
+      <Button color='blue'
+       onClick={()=>{dispatch(AddUsers("user",name,lastName,email,password))}}>
         <Icon name='checkmark' /> Ajouter
       </Button>
     </Modal.Actions>

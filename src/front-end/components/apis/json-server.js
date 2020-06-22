@@ -1,5 +1,8 @@
-import {getAllUsers} from "../../../redux/actions"
+import {getAllUsers,getAllArticles} from '../../../redux/actions/index'
+
 import axios from "axios"
+
+//get all users from Api
 export function getUsersFromApi(){
     return (dispatch)=>
     axios.get("http://localhost:3004/users").then(rep=>{
@@ -7,6 +10,37 @@ export function getUsersFromApi(){
         })
 
 }
+//get all articles from Api
+export function getArticlesFromApi(){
+    return (dispatch)=>
+    axios.get("http://localhost:3004/articles").then(rep=>{
+        dispatch(getAllArticles(rep.data))
+        })  
+}
+//add article in api
+
+export function Addarticles(reference,nom,type,mesure,collection,quantity,phase,image,commentaire){
+    return ()=>
+    
+     axios.post("http://localhost:3004/articles",{reference,nom,type,mesure,collection,quantity,phase,image,commentaire}).then(rep=>{
+        
+        window.location.reload()
+        console.log(rep.data)
+        }).catch(err=>console.log(err)) 
+
+}
+
+//Edite Article
+export function EditeArticle(id,reference,nom,type,mesure,collection,quantity,phase,image,commentaire){
+    return ()=>
+     axios.put(`http://localhost:3004/articles/${id}`,{reference,nom,type,mesure,collection,quantity,phase,image,commentaire}).then(rep=>{
+        
+        window.location.reload()
+        console.log(rep.data)
+        }).catch(err=>console.log(err)) 
+
+}
+
 export function AddUsers(data1,data2,data3,data4,data5){
     return ()=>
      axios.post("http://localhost:3004/users",{role:data1,name:data2,lastname:data3,gmail:data4,password:data5}).then(rep=>{
@@ -19,6 +53,16 @@ export function AddUsers(data1,data2,data3,data4,data5){
 export function DeleteUsers(id){
     return ()=>
      axios.delete(`http://localhost:3004/users/${id}`).then(rep=>{
+        console.log(rep.data)
+        window.location.reload()
+        }).catch(err=>console.log(err)) 
+
+}
+//delete Articles
+
+export function DeleteArticles(id){
+    return ()=>
+     axios.delete(`http://localhost:3004/articles/${id}`).then(rep=>{
         console.log(rep.data)
         window.location.reload()
         }).catch(err=>console.log(err)) 

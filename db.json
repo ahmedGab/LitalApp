@@ -8,14 +8,6 @@
       "name": "Meriem"
     },
     {
-      "name": "ahmed",
-      "role": "user",
-      "lastname": "gabsi",
-      "gmail": "us@gmail.com",
-      "password": "aaa",
-      "id": 2
-    },
-    {
       "id": 3,
       "role": "user",
       "gmail": "us1@gmail.com",
@@ -36,6 +28,33 @@
       "gmail": "aa",
       "password": "rr",
       "id": 5
+    }
+  ],
+  "articles": [
+    {
+      "id": 1,
+      "reference": "#12455",
+      "nom": "article1",
+      "collection": "collection1",
+      "type": "type1",
+      "mesure": "1214metre",
+      "quantity": "1211d",
+      "couleur": "rouge",
+      "phase": "prototype",
+      "image": "url",
+      "commentaire": "hello hello"
+    },
+    {
+      "reference": "article",
+      "nom": "bbc",
+      "type": "bbb",
+      "mesure": "",
+      "collection": "",
+      "quantity": "",
+      "phase": "",
+      "image": "",
+      "commentaire": "",
+      "id": 2
     }
   ]
 }

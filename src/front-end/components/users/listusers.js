@@ -96,9 +96,9 @@ this.props.getusers()
           >
             <Menu vertical borderless fluid text>
               <Menu.Item active as={Link} to='/'>
-              Tableau de bord 
+           Page Modérateurs
               </Menu.Item>
-              <Menu.Item as="a">Ajouter des articles</Menu.Item>
+              <Menu.Item as={Link} to="/articles">Page Articles</Menu.Item>
             
               <Menu.Item as="a">Historique</Menu.Item>
               <Divider hidden />
