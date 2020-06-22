@@ -1,4 +1,4 @@
-import {getAllUsers} from "../../../redux/actions"
+import {getAllUsers,NumberUsers} from "../../../redux/actions"
 import axios from "axios"
 export function getUsersFromApi(){
     return (dispatch)=>
@@ -30,6 +30,21 @@ export function EditUsers(id,data,data1,data2,data3,data4){
      axios.put(`http://localhost:3004/users/${id}`,{name:data,role:data1,lastname:data2,gmail:data3,password:data4}).then(rep=>{
         
         window.location.reload()
+        console.log(rep.data)
+        }).catch(err=>console.log(err)) 
+
+}
+export function getNumberUsers(){
+    return (dispatch)=>
+    axios.get("http://localhost:3004/numberAddUsers").then(rep=>{
+        dispatch(NumberUsers(rep.data))
+        })
+
+}
+export function IncrementNumberAddUsers(id,data1){
+    return ()=> 
+     axios.patch(`http://localhost:3004/numberAddUsers/${id}`,{number:data1}).then(rep=>{
+         
         console.log(rep.data)
         }).catch(err=>console.log(err)) 
 

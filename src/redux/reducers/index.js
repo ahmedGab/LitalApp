@@ -1,6 +1,7 @@
 import {combineReducers} from 'redux'
-import {usersReducer} from "./reducersAdmin"
+import {usersReducer,NumberusersReducer} from "./reducersAdmin"
  const allReducers =combineReducers({
-    users:usersReducer
+    users:usersReducer,
+    nbrUsers:NumberusersReducer
 })
 export default allReducers

@@ -1,20 +1,29 @@
-import React,{useState} from 'react'
-import { useDispatch} from "react-redux";
+import React,{useState,useEffect} from 'react'
+import { useDispatch,useSelector} from "react-redux";
 
 import { Button, Header, Icon, Modal, Form  } from 'semantic-ui-react'
-import {AddUsers} from "../apis/json-server"
+import {AddUsers,IncrementNumberAddUsers,getNumberUsers} from "../apis/json-server"
 import "./users.css"
 const ModalExampleCloseIcon = () => {
   const [name,setName]= useState("")
   const [lastName,setLastName]= useState("")
   const [email,setEmail]= useState("")
   const [password,setPassword]= useState("")
-  const [fields,setFields]= useState({})
+  const [fields]= useState({})
   const [errors,setErrors]= useState({})
+
+  const nbusers = useSelector(state => state.nbrUsers);
 
 
   const dispatch = useDispatch();
   
+  
+  useEffect(() => {
+    dispatch(getNumberUsers())
+}, [])
+
+
+
   function handleValidation(){
     let formIsValid = true;
 let err={}
@@ -62,12 +71,12 @@ setErrors(err)
  //password
  if(!fields["password"]  ){
   formIsValid = false;
-  err["email"] = "ce champs ne peut être pas vide ";
+  err["password"] = "ce champs ne peut être pas vide ";
 }
 if(typeof fields["password"] !== "undefined" ){
-  if(!fields["password"].match(/^\w{6,40}$/)){
+  if(!fields["password"].match(/^.{6,40}$/)){
     formIsValid = false;
-    err["password"] ="Désolé,le nom d'utilisateur doit comporter entre 6 et 40 "
+    err["password"] ="Désolé,le mot de passe doit comporter entre 6 et 40 "
 
   }
     
@@ -79,15 +88,15 @@ if(typeof fields["password"] !== "undefined" ){
     return formIsValid
     
 }
-  
+const n=nbusers.map(el=>el.number).join("")
+let nombreUsers=Number(n)
 function contactSubmit(e){
   e.preventDefault();
 
   if(handleValidation()){
     dispatch(AddUsers("user",name,lastName,email,password))
-     alert(name+ "a été ajouté ");
-  }else{
-     alert("Form has errors.")
+     alert(name+ " a été ajouté dans votre liste de gestionnaire de stock ");
+     dispatch(IncrementNumberAddUsers(1,nombreUsers+1))
   }
 
 
@@ -103,12 +112,13 @@ function contactSubmit(e){
     
   
 }
+console.log(nbusers.map(el=>el.number))
 
   return(
   <div className="ui placeholder segment box-search">
   <div class="ui icon header search">
-    <i class="dont icon"></i>
-    Aucun utilisateur n'a encore été ajouté  </div>
+    <i class="dont icon"></i>{
+    nombreUsers <2? nombreUsers+ " utilisateur a été ajouté" :nombreUsers+ " utilisateurs ont été ajoutés"} </div>
   <Modal trigger={  
  <Button color='vk'>
   <i class="download icon"></i> <span> Ajouter un gestionnaire de stock</span>
@@ -141,19 +151,16 @@ function contactSubmit(e){
       <p  style={{color: "#d93025"}}> {errors["password"]} </p>
 </div>
     </Form.Group>
-    <button type="submit">s</button>
+    <div className="btn-modal">
+    <Button color='blue' type="submit" >
+        <Icon name='checkmark' /> Ajouter
+      </Button>
+      </div>
     </Form>
 
     </Modal.Content>
     
-    <Modal.Actions>
-      <Button  color='red'>
-        <Icon name='remove'  /> Sortir 
-      </Button>
-      <Button color='blue' >
-        <Icon name='checkmark' /> Ajouter
-      </Button>
-    </Modal.Actions>
+   
   </Modal>
   </div>
   )

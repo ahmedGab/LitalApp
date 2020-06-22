@@ -1,10 +1,9 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 import Login from "./front-end/components/authentification/login"
 import Users from "./front-end/components/users/listusers"
 
-import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
+import Historique from './front-end/components/historique';
 
 function App() {
   return (
@@ -15,9 +14,11 @@ function App() {
      </Route>
      <Route path="/users">
        <Users />
-
-
      </Route>
+     <Route path="/historique">
+       <Historique />
+     </Route>
+     
 
      </Switch>
     </div>

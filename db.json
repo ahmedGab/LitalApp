@@ -9,18 +9,19 @@
     },
     {
       "name": "ahmed",
-      "role": "user",
       "lastname": "gabsi",
-      "gmail": "us@gmail.com",
-      "password": "aaa",
+      "role": "user",
+      "gmail": "ag@gmail.com",
+      "password": "aaaaaaa",
       "id": 2
     },
     {
-      "id": 3,
+      "name": "flen",
       "role": "user",
-      "gmail": "us1@gmail.com",
-      "password": "aaa",
-      "name": "khaled"
+      "lastname": "falten",
+      "gmail": "ag@gmail.com",
+      "password": "aaaaaaae",
+      "id": 3
     },
     {
       "id": 4,
@@ -28,6 +29,36 @@
       "gmail": "us2@gmail.com",
       "password": "123",
       "name": "ranya"
+    },
+    {
+      "role": "user",
+      "name": "naziha",
+      "lastname": "hamami",
+      "gmail": "nazihah@gmail.com",
+      "password": "123456",
+      "id": 5
+    },
+    {
+      "name": "nozha",
+      "role": "user",
+      "lastname": "gabsi",
+      "gmail": "nozha@gmail.com",
+      "password": "aaaaaaa",
+      "id": 7
+    },
+    {
+      "name": "ll",
+      "role": "user",
+      "lastname": "ajna",
+      "gmail": "ad@gmail.com",
+      "password": "145555",
+      "id": 8
+    }
+  ],
+  "numberAddUsers": [
+    {
+      "id": 1,
+      "number": 7
     }
   ]
 }

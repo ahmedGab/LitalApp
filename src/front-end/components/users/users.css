@@ -29,6 +29,9 @@ body {
 .searchU{
   margin-top:15px ;
 }
+.btn-modal{
+  text-align: center;
+}
   #sidebar {
     position: fixed;
     height: 100vh;
@@ -132,4 +135,11 @@ body {
 }
 .search{
     color:#337ab7 !important;
+}
+
+.Dropdown-admin{
+  color: black !important;
+}
+.Dropdown-admin:hover{
+  background-color: rgba(68, 70, 82, 0.37) !important;
 }
