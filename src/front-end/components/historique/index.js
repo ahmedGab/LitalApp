@@ -1,8 +1,7 @@
  
 import React, { Component } from "react";
 import {getUsersFromApi} from "../apis/json-server"
-import "./users.css"
-import { Link} from "react-router-dom";
+import { Link,Redirect} from "react-router-dom";
 
 import {
   Button,
@@ -15,14 +14,11 @@ import {
   Menu,
   Table
 } from "semantic-ui-react";
-import Addusers from "./addusers"
-import User from './user'
-import UserS from "./userstatus"
+
 import { connect } from "react-redux";
 
 class App extends Component {
   state = {
-    search:"",
     dropdownMenuStyle: {
       display: "none"
     }
@@ -40,12 +36,9 @@ this.props.getusers()
 
     this.setState(newState);
   };
-  handleChange=(e)=>{
-    this.setState({search:e.target.value})
-  }
 
   render() {
-  const  gestionnaireS=this.props.users.filter(el=>el.role==="user" && el.name.includes(this.state.search))
+  const  gestionnaireS=this.props.users.filter(el=>el.role==="user")
 
     return (
       <div className="App">
@@ -54,10 +47,7 @@ this.props.getusers()
             <Menu.Item header as="a">
               <img src="http://latelierlital.com/sites/default/files/logo_lital_0.png" alt="logo-lital" />
             </Menu.Item>
-            <Menu.Menu position="right">
-              
-              <Menu.Item  as="a"><UserS/></Menu.Item>
-            </Menu.Menu>
+        
           </Menu>
         </Grid>
         <Grid padded className="mobile only">
@@ -85,7 +75,6 @@ this.props.getusers()
               vertical
               style={this.state.dropdownMenuStyle}
             >
-              <Menu.Item as="a"><UserS/></Menu.Item>
               
             </Menu>
           </Menu>
@@ -98,12 +87,12 @@ this.props.getusers()
             id="sidebar"
           >
             <Menu vertical borderless fluid text>
-              <Menu.Item active as={Link} to='/'>
-           Page Modérateurs
+              <Menu.Item  as={Link} to='/users'>
+              Tableau de bord 
               </Menu.Item>
-              <Menu.Item as={Link} to="/articles">Page Articles</Menu.Item>
+              <Menu.Item as="a">Ajouter des articles</Menu.Item>
             
-              <Menu.Item as={Link} to='/historique'>Historique</Menu.Item>
+              <Menu.Item active as={Link} to='/historique'>Historique</Menu.Item>
               <Divider hidden />
               <Menu.Item as="a">Page Facebook Lital</Menu.Item>
               <Menu.Item as="a">Site web Lital</Menu.Item>
@@ -137,7 +126,7 @@ this.props.getusers()
         <div className="field">
           <div className="ui search">
             <div className="ui icon input">
-            <Input icon='users' iconPosition='left' onChange={this.handleChange} placeholder='Search users...' />
+            <Input icon='users' iconPosition='left' placeholder='Search users...' />
 
               <i className="search icon"></i>
             </div>
@@ -146,7 +135,6 @@ this.props.getusers()
         </div>
       </div>
       </div>
-              <Addusers />
              
               </div>
               </div>
@@ -162,20 +150,20 @@ this.props.getusers()
   <Table celled>
     <Table.Header>
       <Table.Row>
-      <Table.HeaderCell>Identifiant</Table.HeaderCell>
-        <Table.HeaderCell>Gestionnaires de stock</Table.HeaderCell>
-        <Table.HeaderCell>Adresse E-mail</Table.HeaderCell>
-        <Table.HeaderCell>Mot de passe</Table.HeaderCell>
-        <Table.HeaderCell>Suppression</Table.HeaderCell>
-        <Table.HeaderCell>Modification</Table.HeaderCell>
+      <Table.HeaderCell>Nom et Prénom</Table.HeaderCell>
+        <Table.HeaderCell>Type de mouvement</Table.HeaderCell>
+        <Table.HeaderCell>Date</Table.HeaderCell>
+        <Table.HeaderCell>Heure</Table.HeaderCell>
+        <Table.HeaderCell>Statut</Table.HeaderCell>
+        <Table.HeaderCell>Reference-article</Table.HeaderCell>
+        <Table.HeaderCell>Image</Table.HeaderCell>
+
 
       </Table.Row>
     </Table.Header>
-    {gestionnaireS.map( 
-  el=> <User key={el.id} el={el} />
-    )
+   
 
-    }
+    
     </Table>
 </Container>
             </Grid>

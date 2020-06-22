@@ -8,11 +8,24 @@
       "name": "Meriem"
     },
     {
+<<<<<<< HEAD
       "id": 3,
+=======
+      "name": "ahmed",
+      "lastname": "gabsi",
       "role": "user",
-      "gmail": "us1@gmail.com",
-      "password": "aaa",
-      "name": "khaled"
+      "gmail": "ag@gmail.com",
+      "password": "aaaaaaa",
+      "id": 2
+    },
+    {
+      "name": "flen",
+>>>>>>> ef48c334ef85cb0b2274d910cf24d643bea27ef0
+      "role": "user",
+      "lastname": "falten",
+      "gmail": "ag@gmail.com",
+      "password": "aaaaaaae",
+      "id": 3
     },
     {
       "id": 4,
@@ -22,12 +35,34 @@
       "name": "ranya"
     },
     {
-      "name": "aa",
       "role": "user",
-      "lastname": "zz",
-      "gmail": "aa",
-      "password": "rr",
+      "name": "naziha",
+      "lastname": "hamami",
+      "gmail": "nazihah@gmail.com",
+      "password": "123456",
       "id": 5
+    },
+    {
+      "name": "nozha",
+      "role": "user",
+      "lastname": "gabsi",
+      "gmail": "nozha@gmail.com",
+      "password": "aaaaaaa",
+      "id": 7
+    },
+    {
+      "name": "ll",
+      "role": "user",
+      "lastname": "ajna",
+      "gmail": "ad@gmail.com",
+      "password": "145555",
+      "id": 8
+    }
+  ],
+  "numberAddUsers": [
+    {
+      "id": 1,
+      "number": 7
     }
   ],
   "articles": [

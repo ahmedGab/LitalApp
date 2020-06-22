@@ -20,7 +20,7 @@ function ListUsers(props){
           <Header as='h4' image>
             <Image  rounded size='Medium' src='https://blog.valoxy.org/wp-content/uploads/2013/07/gestion-des-stocks.png' />
             <Header.Content>
-            {props.el.name}
+            {props.el.name +" "+props.el.lastname}
                           <Header.Subheader>{props.el.role}</Header.Subheader>
             </Header.Content>
           </Header>

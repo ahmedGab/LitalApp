@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import "./login.css"
 import {getUsersFromApi} from "../apis/json-server"
 import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
-import { Link,Redirect} from "react-router-dom";
+import { Redirect} from "react-router-dom";
 
 
 function LoginForm () {
@@ -50,7 +50,7 @@ setauth(true)
     <Grid.Column style={{ maxWidth: 450 }}>
       <div className="header-login">
       <Header as='h1'   textAlign='center'>
-        <Image src="http://latelierlital.com/sites/default/files/logo_lital_0.png" /> Connectez a votre compte
+        <Image src="http://latelierlital.com/sites/default/files/logo_lital_0.png" /> Connectez-vous
       </Header>
       </div>
       <Form  size='large' container mobile only grid required>
