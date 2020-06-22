@@ -1,8 +1,13 @@
  
 import React, { Component } from "react";
-import {getUsersFromApi} from "../apis/json-server"
-import "./users.css"
-import { Link} from "react-router-dom";
+import {getArticlesFromApi} from "../apis/json-server"
+import Article from './articles'
+import { connect } from "react-redux";
+import AddArticle from "./addarticles"
+
+import "../users/users.css"
+
+import { Link,Redirect} from "react-router-dom";
 
 import {
   Button,
@@ -12,40 +17,25 @@ import {
   Icon,
   Input,
   Container,
+  Label,
   Menu,
   Table
 } from "semantic-ui-react";
-import Addusers from "./addusers"
-import User from './user'
-import UserS from "./userstatus"
-import { connect } from "react-redux";
+
 
 class App extends Component {
   state = {
-    search:"",
     dropdownMenuStyle: {
       display: "none"
     }
   };
-componentDidMount(){
-this.props.getusers()
-}
-  handleToggleDropdownMenu = () => {
-    let newState = Object.assign({}, this.state);
-    if (newState.dropdownMenuStyle.display === "none") {
-      newState.dropdownMenuStyle = { display: "flex" };
-    } else {
-      newState.dropdownMenuStyle = { display: "none" };
+
+
+  componentDidMount(){
+    this.props.getarticles()
     }
-
-    this.setState(newState);
-  };
-  handleChange=(e)=>{
-    this.setState({search:e.target.value})
-  }
-
   render() {
-  const  gestionnaireS=this.props.users.filter(el=>el.role==="user" && el.name.includes(this.state.search))
+    const  articles=this.props.articles
 
     return (
       <div className="App">
@@ -56,7 +46,7 @@ this.props.getusers()
             </Menu.Item>
             <Menu.Menu position="right">
               
-              <Menu.Item  as="a"><UserS/></Menu.Item>
+            
             </Menu.Menu>
           </Menu>
         </Grid>
@@ -72,7 +62,7 @@ this.props.getusers()
                   inverted
                   icon
                   toggle
-                  onClick={this.handleToggleDropdownMenu}
+              
                 >
                   <Icon name="content" />
                 </Button>
@@ -83,9 +73,9 @@ this.props.getusers()
               fluid
               inverted
               vertical
-              style={this.state.dropdownMenuStyle}
+         
             >
-              <Menu.Item as="a"><UserS/></Menu.Item>
+            
               
             </Menu>
           </Menu>
@@ -98,12 +88,13 @@ this.props.getusers()
             id="sidebar"
           >
             <Menu vertical borderless fluid text>
-              <Menu.Item active as={Link} to='/'>
-           Page Modérateurs
+            <Menu.Item as={Link} to="/users">
+             page Modérateurs
               </Menu.Item>
-              <Menu.Item as={Link} to="/articles">Page Articles</Menu.Item>
+       
+              <Menu.Item active as={Link} to='/articles'>page Articles</Menu.Item>
             
-              <Menu.Item as={Link} to='/historique'>Historique</Menu.Item>
+              <Menu.Item as="a">Historique</Menu.Item>
               <Divider hidden />
               <Menu.Item as="a">Page Facebook Lital</Menu.Item>
               <Menu.Item as="a">Site web Lital</Menu.Item>
@@ -121,58 +112,74 @@ this.props.getusers()
             <Grid padded>
               <Grid.Row>
                 <Header dividing size="huge" as="h2">
-                  Chercher ou ajouter des gestionnaires de stock
+                  Chercher ou ajouter des articles
                 </Header>
               </Grid.Row>
               <Grid.Row >
+              <select class="ui search dropdown">
+  <option value="">Nom</option>
+  <option value="AL">Alabama</option>
+  </select>
+  <select class="ui search dropdown">
+  <option value="">Collection</option>
+  <option value="AL">Alabama</option>
+  </select>
+  <select class="ui search dropdown">
+  <option value="">Type</option>
+  <option value="AL">Alabama</option>
+  </select>
+  <select class="ui search dropdown">
+  <option value="">Mesure</option>
+  <option value="AL">Alabama</option>
+  </select>
+  <select class="ui search dropdown">
+  <option value="">Quantité</option>
+  <option value="AL">Alabama</option>
+  </select>
+  <select class="ui search dropdown">
+  <option value="">Couleur</option>
+  <option value="AL">Alabama</option>
+  </select>
+  <select class="ui search dropdown">
+  <option value="">Phase</option>
+  <option value="AL">Alabama</option>
+  </select>
+  
                 <Grid.Column mobile={16} tablet={16} computer={16}>
-                <div className="users-layout">
-            <div className="search-users">
-              <div className="searchU">
-            <div className="ui placeholder segment box-search ">
-        <div className="ui icon header search">
-          <i className="search icon"></i>
-          Chercher les utilisateurs
-        </div>
-        <div className="field">
-          <div className="ui search">
-            <div className="ui icon input">
-            <Input icon='users' iconPosition='left' onChange={this.handleChange} placeholder='Search users...' />
-
-              <i className="search icon"></i>
-            </div>
-            <div className="results"></div>
-          </div>
-        </div>
-      </div>
-      </div>
-              <Addusers />
              
-              </div>
-              </div>
+            <AddArticle/>
+          
                 </Grid.Column>
               </Grid.Row>
               <Divider section hidden />
               <Grid.Row>
                 <Header dividing size="huge" as="h2">
-                  La liste des utilisateurs
+                  La liste des articles
                 </Header>
+                <Input icon='users' iconPosition='left' placeholder='Search by reference...' />
+
               </Grid.Row>
 <Container>
   <Table celled>
     <Table.Header>
       <Table.Row>
-      <Table.HeaderCell>Identifiant</Table.HeaderCell>
-        <Table.HeaderCell>Gestionnaires de stock</Table.HeaderCell>
-        <Table.HeaderCell>Adresse E-mail</Table.HeaderCell>
-        <Table.HeaderCell>Mot de passe</Table.HeaderCell>
+      <Table.HeaderCell>Réference</Table.HeaderCell>
+        <Table.HeaderCell>Nom d'article</Table.HeaderCell>
+        <Table.HeaderCell>Collection</Table.HeaderCell>
+        <Table.HeaderCell>Type</Table.HeaderCell>
+        <Table.HeaderCell>Mesure</Table.HeaderCell>
+        <Table.HeaderCell>Quantité</Table.HeaderCell>
+        <Table.HeaderCell>Couleur</Table.HeaderCell>
+        <Table.HeaderCell>Phase</Table.HeaderCell>
+        <Table.HeaderCell>image</Table.HeaderCell>
+        <Table.HeaderCell>Commentaire</Table.HeaderCell>
         <Table.HeaderCell>Suppression</Table.HeaderCell>
         <Table.HeaderCell>Modification</Table.HeaderCell>
 
       </Table.Row>
     </Table.Header>
-    {gestionnaireS.map( 
-  el=> <User key={el.id} el={el} />
+    {articles.map( 
+  el=> <Article key={el.id} el={el} />
     )
 
     }
@@ -186,9 +193,9 @@ this.props.getusers()
   }
 }
 const mapStateToProps=(state)=>({
-users:state.users
-})
-const mapDispatchToProps=(dispatch)=>({
-getusers:()=>dispatch(getUsersFromApi())
-})
-export default connect (mapStateToProps,mapDispatchToProps)(App);
+    articles:state.articles
+    })
+    const mapDispatchToProps=(dispatch)=>({
+    getarticles:()=>dispatch(getArticlesFromApi())
+    })
+export default connect(mapStateToProps,mapDispatchToProps)(App);
