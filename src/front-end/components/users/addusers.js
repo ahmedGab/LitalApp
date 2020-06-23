@@ -16,7 +16,6 @@ const ModalExampleCloseIcon = () => {
 
 
   const dispatch = useDispatch();
-<<<<<<< HEAD
 /*
   function vericationName(){
     if (/^[a-z]{0,15}$/i.test (name))
@@ -25,7 +24,6 @@ const ModalExampleCloseIcon = () => {
     return false
   }
 */
-=======
   
   
   useEffect(() => {
@@ -72,7 +70,6 @@ setErrors(err)
       if(!fields["email"].match(/^[\w|.]+\@[a-z ]{3,}\.[a-z]{2,3}$/)){
         formIsValid = false;
         err["email"] ="Désolé,le nom d'utilisateur doit comporter entre 6 et 30 caractères et seules les lettres (az), les chiffres (0-9) et les points (.) Sont autorisés."
->>>>>>> ef48c334ef85cb0b2274d910cf24d643bea27ef0
  
       }
         
@@ -126,79 +123,53 @@ function contactSubmit(e){
 console.log(nbusers.map(el=>el.number))
 
   return(
-  <div className="ui placeholder segment box-search">
-  <div class="ui icon header search">
-    <i class="dont icon"></i>{
-    nombreUsers <2? nombreUsers+ " utilisateur a été ajouté" :nombreUsers+ " utilisateurs ont été ajoutés"} </div>
-  <Modal trigger={  
- <Button color='vk'>
-  <i class="download icon"></i> <span> Ajouter un gestionnaire de stock</span>
-</Button>
-  } closeIcon>
-
-    <Header icon='download icon' content='' />
-    <Modal.Content>
-    <Form onSubmit={contactSubmit}>
-      
-    <Form.Group unstackable widths={2}>
-<<<<<<< HEAD
-      <Form.Input label='Nom' placeholder='Nom' type="name" 
-       onChange={e => setName(e.target.value)}  />
-      <Form.Input label='Prénom' placeholder='Prénom' 
-      onChange={e => setLastName(e.target.value)} />
-=======
+    <div className="ui placeholder segment box-search">
+    <div class="ui icon header search">
+      <i class="dont icon"></i>{
+      nombreUsers <2? nombreUsers+ " utilisateur a été ajouté" :nombreUsers+ " utilisateurs ont été ajoutés"} </div>
+    <Modal trigger={  
+   <Button color='vk'>
+    <i class="download icon"></i> <span> Ajouter un gestionnaire de stock</span>
+  </Button>
+    } closeIcon>
+  
+      <Header icon='download icon' content='' />
+      <Modal.Content>
+      <Form onSubmit={contactSubmit}>
+        
+      <Form.Group unstackable widths={2}>
+        <div className="bloc-error">
+        <Form.Input className="input-add" label='Nom'  placeholder='Nom' type="name"  onChange={e =>{handleChange("name",e)}} value={fields["name"]}  />
+          <p  style={{color: "#d93025"}}> {errors["name"]} </p>
+          </div>
+          <div className="bloc-error">
+        <Form.Input className="input-add" label='Prénom' placeholder='Prénom' onChange={e =>{handleChange("lastname",e)}} value={fields["lastname"]} />
+        <p style={{color: "#d93025"}}> {errors["lastname"]} </p>
+          </div>
+      </Form.Group>
+     
+  
+      <Form.Group widths={2}>
       <div className="bloc-error">
-      <Form.Input className="input-add" label='Nom'  placeholder='Nom' type="name"  onChange={e =>{handleChange("name",e)}} value={fields["name"]}  />
-        <p  style={{color: "#d93025"}}> {errors["name"]} </p>
+        <Form.Input className="input-add" label='E-mail' placeholder='Email' type="email" onChange={e =>{handleChange("email",e)}} value={fields["email"]} />
+        <p  style={{color: "#d93025"}}> {errors["email"]} </p>
+          </div>
+          <div className="bloc-error">
+        <Form.Input className="input-add" label='Mot de passe' placeholder='Mot de passe' onChange={e =>{handleChange("password",e)}} value={fields["password"]} />
+        <p  style={{color: "#d93025"}}> {errors["password"]} </p>
+  </div>
+      </Form.Group>
+      <div className="btn-modal">
+      <Button color='blue' type="submit" >
+          <Icon name='checkmark' /> Ajouter
+        </Button>
         </div>
-        <div className="bloc-error">
-      <Form.Input className="input-add" label='Prénom' placeholder='Prénom' onChange={e =>{handleChange("lastname",e)}} value={fields["lastname"]} />
-      <p style={{color: "#d93025"}}> {errors["lastname"]} </p>
-        </div>
->>>>>>> ef48c334ef85cb0b2274d910cf24d643bea27ef0
-    </Form.Group>
-   
-
-    <Form.Group widths={2}>
-<<<<<<< HEAD
-      <Form.Input label='E-mail' placeholder='Email' type="email" 
-      onChange={e => setEmail(e.target.value)} />
-      <Form.Input label='Mot de passe' placeholder='Mot de passe'
-       onChange={e => setPassword(e.target.value)} />
-=======
-    <div className="bloc-error">
-      <Form.Input className="input-add" label='E-mail' placeholder='Email' type="email" onChange={e =>{handleChange("email",e)}} value={fields["email"]} />
-      <p  style={{color: "#d93025"}}> {errors["email"]} </p>
-        </div>
-        <div className="bloc-error">
-      <Form.Input className="input-add" label='Mot de passe' placeholder='Mot de passe' onChange={e =>{handleChange("password",e)}} value={fields["password"]} />
-      <p  style={{color: "#d93025"}}> {errors["password"]} </p>
-</div>
->>>>>>> ef48c334ef85cb0b2274d910cf24d643bea27ef0
-    </Form.Group>
-    <div className="btn-modal">
-    <Button color='blue' type="submit" >
-        <Icon name='checkmark' /> Ajouter
-      </Button>
-      </div>
-    </Form>
-
-    </Modal.Content>
-    
-<<<<<<< HEAD
-    <Modal.Actions>
-      <Button  color='red'>
-        <Icon name='remove'  /> Sortir 
-      </Button>
-      <Button color='blue'
-       onClick={()=>{dispatch(AddUsers("user",name,lastName,email,password))}}>
-        <Icon name='checkmark' /> Ajouter
-      </Button>
-    </Modal.Actions>
-=======
-   
->>>>>>> ef48c334ef85cb0b2274d910cf24d643bea27ef0
-  </Modal>
+      </Form>
+  
+      </Modal.Content>
+      
+     
+    </Modal>
   </div>
   )
 }
