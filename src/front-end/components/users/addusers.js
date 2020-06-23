@@ -16,15 +16,6 @@ const ModalExampleCloseIcon = () => {
 
 
   const dispatch = useDispatch();
-/*
-  function vericationName(){
-    if (/^[a-z]{0,15}$/i.test (name))
-    return true 
-    else 
-    return false
-  }
-*/
-  
   
   useEffect(() => {
     dispatch(getNumberUsers())

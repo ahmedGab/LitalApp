@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import AddArticle from "./addarticles"
 
 import "../users/users.css"
+import "./aticles.css"
 
 import { Link,Redirect} from "react-router-dom";
 
@@ -27,9 +28,13 @@ class App extends Component {
   state = {
     dropdownMenuStyle: {
       display: "none"
-    }
+    },
+    value:""
   };
+handlechange=(event)=>{
+  this.setState({value: event.target.value});
 
+}
 
   componentDidMount(){
     this.props.getarticles()
@@ -116,35 +121,62 @@ class App extends Component {
                 </Header>
               </Grid.Row>
               <Grid.Row >
-              <select class="ui search dropdown">
-  <option value="">Nom</option>
-  <option value="AL">Alabama</option>
-  </select>
-  <select class="ui search dropdown">
+             
+              <select name="value" value={this.state.value} className="ui search dropdown" onChange={this.handlechange} >
+   <option value="" >nom</option>
+  {articles.map(el=>
+
+  <option value={el.nom}   >{el.nom}</option>
+ 
+  )}
+   </select>
+
+  <select className="ui search dropdown" value={this.state.value} onChange={this.handlechange} >
+    
   <option value="">Collection</option>
-  <option value="AL">Alabama</option>
+  {articles.map(el=>
+
+<option value={el.collection}   >{el.collection}</option>
+
+)}
   </select>
-  <select class="ui search dropdown">
+  <select className="ui search dropdown"  value={this.state.value} className="ui search dropdown" onChange={this.handlechange}>
   <option value="">Type</option>
-  <option value="AL">Alabama</option>
+  {articles.map(el=>
+
+<option value={el.type}   >{el.type}</option>
+
+)}
   </select>
-  <select class="ui search dropdown">
+  <select className="ui search dropdown" value={this.state.value} className="ui search dropdown" onChange={this.handlechange}>
   <option value="">Mesure</option>
-  <option value="AL">Alabama</option>
-  </select>
-  <select class="ui search dropdown">
+  {articles.map(el=>
+
+<option value={el.mesure}   >{el.mesure}</option>
+
+)}  </select>
+  <select className="ui search dropdown"  value={this.state.value} className="ui search dropdown" onChange={this.handlechange}>
   <option value="">Quantité</option>
-  <option value="AL">Alabama</option>
-  </select>
-  <select class="ui search dropdown">
+  {articles.map(el=>
+
+<option value={el.quantity}   >{el.quantity}</option>
+
+)}  </select>
+  <select className="ui search dropdown"  value={this.state.value} className="ui search dropdown" onChange={this.handlechange}>
   <option value="">Couleur</option>
-  <option value="AL">Alabama</option>
-  </select>
-  <select class="ui search dropdown">
+  {articles.map(el=>
+
+<option value={el.couleur}   >{el.couleur}</option>
+
+)}  </select>
+  <select className="ui search dropdown"  value={this.state.value} className="ui search dropdown" onChange={this.handlechange}>
   <option value="">Phase</option>
-  <option value="AL">Alabama</option>
-  </select>
-  
+  {articles.map(el=>
+
+<option value={el.phase}   >{el.phase}</option>
+
+)}  </select>
+  <p>{this.state.value}</p>
                 <Grid.Column mobile={16} tablet={16} computer={16}>
              
             <AddArticle/>
@@ -159,8 +191,8 @@ class App extends Component {
                 <Input icon='users' iconPosition='left' placeholder='Search by reference...' />
 
               </Grid.Row>
-<Container>
-  <Table celled>
+<Container >
+  <Table celled >
     <Table.Header>
       <Table.Row>
       <Table.HeaderCell>Réference</Table.HeaderCell>
@@ -178,11 +210,15 @@ class App extends Component {
 
       </Table.Row>
     </Table.Header>
-    {articles.map( 
+    
+    {this.state.value===""?
+    articles.map( 
   el=> <Article key={el.id} el={el} />
-    )
+    ): articles.filter(el=>el.nom===this.state.value || el.collection===this.state.value|| el.type===this.state.value || el.mesure===this.state.value || el.quantity==this.state.value|| el.couleur===this.state.value || el.phase===this.state.value).map( 
+  el=> <Article key={el.id} el={el} />
+    )}
 
-    }
+  
     </Table>
 </Container>
             </Grid>

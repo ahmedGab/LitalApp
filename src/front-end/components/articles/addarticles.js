@@ -1,6 +1,8 @@
 import React,{useState} from 'react'
 import { useDispatch} from "react-redux";
 
+import "../users/users.css"
+
 import { Button, Header, Icon, Modal, Form  } from 'semantic-ui-react'
 import {Addarticles} from "../apis/json-server"
 
@@ -11,82 +13,215 @@ const ModalExampleCloseIcon = () => {
   const [mesure,setMesure]= useState("")
   const [collection,setCollection]= useState("")
   const [quantity,setQuantity]= useState("")
+  const [couleur, setCouleur]= useState("")
   const [phase,setPhase]= useState("")
   const [image,setImage]= useState("")
   const [commentaire,setCommentaire]= useState("")
-  const dispatch = useDispatch();
+  const [fields]= useState({})
+  const [errors,setErrors]= useState({})
 
- // reference,nom,type,mesure,collection,quantity,phase,image,commentaire
-/*
-  function vericationName(){
-    if (/^[a-z]{0,15}$/i.test (name))
-    return true 
-    else 
-    return false
+
+  const dispatch = useDispatch();
+  
+
+
+
+
+  function handleValidation(){
+    let formIsValid = true;
+let err={}
+//reference
+if(!fields["ref"]  ){
+  formIsValid = false;
+  err["ref"] = "Ce champs ne doit pas être  vide ";
+}
+
+    //Name
+    if(!fields["nom"]  ){
+       formIsValid = false;
+       err["nom"] = "Ce champs ne doit pas être vide ";
+    }
+
+    if( fields["nom"] !== undefined ){
+       if(!fields["nom"].match(/^[a-zA-Z]+$/)){
+          formIsValid = false;
+          err["nom"] = "Désolé, seules les lettres (az) Sont autorisés.";
+       }        
+    }
+setErrors(err)
+//collection
+if(!fields["collection"]  ){
+  formIsValid = false;
+  err["collection"] = "ce champs ne doit pas être  vide ";
+}   
+
+setErrors(err)
+    //type
+    if(!fields["type"]  ){
+      formIsValid = false;
+      err["type"] = "ce champs ne doit pas être  vide ";
+    }
+   
+ //mesure
+ if(!fields["mesure"]  ){
+  formIsValid = false;
+  err["mesure"] = "ce champs ne doit pas être  vide ";
+}
+//quantity
+if(!fields["quantity"]  ){
+  formIsValid = false;
+  err["quantity"] = "ce champs ne doit pas être pas vide ";
+}
+//couleur
+if(!fields["couleur"]  ){
+  formIsValid = false;
+  err["couleur"] = "ce champs ne doit pas être pas vide ";
+}
+//image
+if(!fields["image"]  ){
+  formIsValid = false;
+  err["image"] = "ce champs ne doit pas être pas vide ";
+}
+
+//commentaire
+if(!fields["comment"]  ){
+  formIsValid = false;
+  err["comment"] = "ce champs ne doit pas être pas vide ";
+}
+
+
+    return formIsValid
+    
   }
-*/
- 
+
+
+function articlesSubmit(e){
+  e.preventDefault();
+
+  if(handleValidation()){
+    dispatch(Addarticles(reference,nom,collection,type,mesure,quantity,couleur,phase,image,commentaire))   
+     alert(nom+ " a été ajouté dans votre liste des produits ");
+  }
+
+
+
+}
+ const handleChange=(field, e)=>{  
+  let f=fields       
+  f[field] = e.target.value; 
+setRefrence(f["ref"])     
+  setNom(f["nom"])   
+  setCollection(f["collection"]) 
+  setMesure(f["mesure"])  
+  setQuantity(f["quantity"])
+  setType(f["type"])
+   setImage(f["image"])
+  setPhase(f["phase"])
+  setCouleur(f["couleur"]) 
+  setCommentaire(f["comment"])   
+    
+  
+}
+
 
   return(
   <div className="ui placeholder segment box-search">
-  <div class="ui icon header search">
-    <i class="dont icon"></i>
+  <div className="ui icon header search">
+    <i className="dont icon"></i>
     Aucun utilisateur n'a encore été ajouté  </div>
   <Modal trigger={  
  <Button color='vk'>
-  <i class="download icon"></i> <span> Ajouter un Article</span>
+  <i className="download icon"></i> <span> Ajouter un Article</span>
 </Button>
   } closeIcon>
 
     <Header icon='download icon' content='' />
     <Modal.Content>
-    <Form>
+    <Form onSubmit={articlesSubmit}>
       
     <Form.Group unstackable widths={2}>
-      <Form.Input label="Référence d'article" placeholder='Reference' type="text" 
-       onChange={e => setRefrence(e.target.value)}  />
-      <Form.Input label="Nom d'article" placeholder='Nom' 
-      onChange={e => setNom(e.target.value)} />
+    <div className="bloc-error">
+      <Form.Input className="input-add" label="Référence d'article" placeholder='Reference' type="text" 
+      onChange={e =>{handleChange("ref",e)}} value={fields["ref"]}  />
+      <p  style={{color: "#d93025"}}> {errors["ref"]} </p> 
+      </div>
+      <div className="bloc-error"> 
+      <Form.Input className="input-add" label="Nom d'article" placeholder='Nom' 
+      onChange={e =>{handleChange("nom",e)}} />
+            <p  style={{color: "#d93025"}}> {errors["nom"]} </p> 
+
+      </div>
     </Form.Group>
     <Form.Group widths={2}>
-      <Form.Input label="Type d'article" placeholder='Ajouter le type' type="text" 
-      onChange={e => setType(e.target.value)} />
-      <Form.Input label="Mesure d'article" placeholder='ajouter Mesure'
-       onChange={e => setMesure(e.target.value)} />
+    <div className="bloc-error">
+    <Form.Input className="input-add" label='collection' placeholder='Ajouter collection'  
+    onChange={e =>{handleChange("collection",e)}} value={fields["collection"]} />
+            <p  style={{color: "#d93025"}}> {errors["collection"]} </p> 
+
+      </div>
+       <div className="bloc-error">
+      <Form.Input className="input-add" label="Type d'article" placeholder='Ajouter le type' type="text" 
+      onChange={e =>{handleChange("type",e)}} value={fields["type"]} />
+            <p  style={{color: "#d93025"}}> {errors["type"]} </p> 
+
+      </div>
+    </Form.Group>
+  <Form.Group widths={2}>
+  <div className="bloc-error">
+    <Form.Input className="input-add" label="Mesure d'article" placeholder='ajouter Mesure'
+        onChange={e =>{handleChange("mesure",e)}} value={fields["mesure"]} />
+             <p  style={{color: "#d93025"}}> {errors["mesure"]} </p> 
+
+       </div>
+        <div className="bloc-error">
+            <Form.Input className="input-add" label='Quantité' placeholder='ajouter quantité'
+        onChange={e =>{handleChange("quantity",e)}} value={fields["quantity"]} />
+             <p  style={{color: "#d93025"}}> {errors["quantity"]} </p> 
+
+       </div>
     </Form.Group>
     <Form.Group widths={2}>
-      <Form.Input label='collection' placeholder='Ajouter collection' type="email" 
-      onChange={e => setCollection(e.target.value)} />
-      <Form.Input label='Quantité' placeholder='ajouter quantité'
-       onChange={e => setQuantity(e.target.value)} />
+    <div className="bloc-error">
+    <Form.Input className="input-add" label="Couleur" placeholder="Couleur" type="text" 
+       onChange={e =>{handleChange("couleur",e)}} value={fields["couleur"]} />
+            <p  style={{color: "#d93025"}}> {errors["couleur"]} </p> 
+
+      </div>
+      <div className="bloc-error">
+      <Form.Input className="input-add" label="phase d'article" placeholder="phase d'article" type="text" 
+     onChange={e =>{handleChange("phase",e)}} value={fields["phase"]} />
+            <p  style={{color: "#d93025"}}> {errors["phase"]} </p> 
+
+    </div>
     </Form.Group>
     <Form.Group widths={2}>
-      <Form.Input label="phase d'article" placeholder="phase d'article" type="text" 
-      onChange={e => setPhase(e.target.value)} />
-      <Form.Input label="Image" placeholder= "ajouter image d'article"
-       onChange={e => setImage(e.target.value)} />
-    </Form.Group>
-    <Form.Group widths={2}>
-    <textarea  label='Commentaire'placeholder="Ajouter un commentaire"  onChange={e => setCommentaire(e.target.value)}></textarea>
+    <div className="bloc-error">
+    <Form.Input className="input-add" label="Image" placeholder= "ajouter image d'article"
+        onChange={e =>{handleChange("image",e)}} value={fields["image"]} />
+             <p  style={{color: "#d93025"}}> {errors["image"]} </p> 
+
+       </div>
+       <div className="bloc-error">
+    <textarea  className="input-add" label='Commentaire'placeholder="Ajouter un commentaire"   onChange={e =>{handleChange("comment",e)}} value={fields["comment"]}></textarea>
+    <p  style={{color: "#d93025"}}> {errors["comment"]} </p> 
+
+    </div>
       {/* <Form.Input label='Commentaire' placeholder='ajouter un commentaire' type="commentaire" 
       onChange={e => setCommentaire(e.target.value)} /> */}
     </Form.Group>
+    <div className="btn-modal">
+      <Button color='blue' type="submit" >
+          <Icon name='checkmark' /> Ajouter
+        </Button>
+        </div>
     </Form>
 
     </Modal.Content>
     
-    <Modal.Actions>
-      <Button  color='red'>
-        <Icon name='remove'  /> Sortir 
-      </Button>
-      <Button color='blue'
-       onClick={()=>{dispatch(Addarticles("article",reference,nom,type,mesure,collection,quantity,phase,image,commentaire))}}>
-        <Icon name='checkmark' /> Ajouter
-      </Button>
-    </Modal.Actions>
+   
   </Modal>
   </div>
   )
-}
+    }
 
 export default ModalExampleCloseIcon

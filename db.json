@@ -24,11 +24,12 @@
       "id": 3
     },
     {
-      "id": 4,
+      "name": "ranya",
       "role": "user",
-      "gmail": "us2@gmail.com",
-      "password": "123",
-      "name": "ranya"
+      "lastname": "gabsi",
+      "gmail": "us23456@gmail.com",
+      "password": "123456",
+      "id": 4
     },
     {
       "role": "user",
@@ -39,18 +40,10 @@
       "id": 5
     },
     {
-      "name": "nozha",
-      "role": "user",
-      "lastname": "gabsi",
-      "gmail": "nozha@gmail.com",
-      "password": "aaaaaaa",
-      "id": 7
-    },
-    {
       "name": "ll",
       "role": "user",
       "lastname": "ajna",
-      "gmail": "ad@gmail.com",
+      "gmail": "adaaaa@gmail.com",
       "password": "145555",
       "id": 8
     }
@@ -63,29 +56,43 @@
   ],
   "articles": [
     {
-      "id": 1,
-      "reference": "#12455",
-      "nom": "article1",
-      "collection": "collection1",
-      "type": "type1",
-      "mesure": "1214metre",
-      "quantity": "1211d",
-      "couleur": "rouge",
-      "phase": "prototype",
-      "image": "url",
-      "commentaire": "hello hello"
+      "reference": "a",
+      "nom": "ar",
+      "collection": "c",
+      "type": "d",
+      "mesure": "e",
+      "quantity": "f",
+      "couleur": "hhh",
+      "phase": "h",
+      "image": "i",
+      "commentaire": "g",
+      "id": 1
     },
     {
-      "reference": "article",
-      "nom": "bbc",
-      "type": "bbb",
-      "mesure": "",
-      "collection": "",
-      "quantity": "",
-      "phase": "",
-      "image": "",
-      "commentaire": "",
-      "id": 2
+      "reference": "a",
+      "nom": "b",
+      "collection": "c",
+      "type": "d",
+      "mesure": "e",
+      "quantity": "f",
+      "couleur": "j",
+      "phase": "h",
+      "image": "i",
+      "commentaire": "g",
+      "id": 4
+    },
+    {
+      "reference": "1",
+      "nom": "b",
+      "collection": "3",
+      "type": "4",
+      "mesure": "5",
+      "quantity": "6",
+      "couleur": "7",
+      "phase": "8",
+      "image": "9",
+      "commentaire": "10",
+      "id": 5
     }
   ]
 }

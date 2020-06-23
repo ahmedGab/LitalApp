@@ -19,10 +19,9 @@ export function getArticlesFromApi(){
 }
 //add article in api
 
-export function Addarticles(reference,nom,type,mesure,collection,quantity,phase,image,commentaire){
+export function Addarticles(reference,nom,collection,type,mesure,quantity,couleur,phase,image,commentaire){
     return ()=>
-    
-     axios.post("http://localhost:3004/articles",{reference,nom,type,mesure,collection,quantity,phase,image,commentaire}).then(rep=>{
+     axios.post("http://localhost:3004/articles",{reference,nom,collection,type,mesure,quantity,couleur,phase,image,commentaire}).then(rep=>{
         
         window.location.reload()
         console.log(rep.data)
@@ -31,9 +30,9 @@ export function Addarticles(reference,nom,type,mesure,collection,quantity,phase,
 }
 
 //Edite Article
-export function EditeArticle(id,reference,nom,type,mesure,collection,quantity,phase,image,commentaire){
+export function EditeArticle(id,reference,nom,collection,type,mesure,quantity,couleur,phase,image,commentaire){
     return ()=>
-     axios.put(`http://localhost:3004/articles/${id}`,{reference,nom,type,mesure,collection,quantity,phase,image,commentaire}).then(rep=>{
+     axios.put(`http://localhost:3004/articles/${id}`,{reference,nom,collection,type,mesure,quantity,couleur,phase,image,commentaire}).then(rep=>{
         
         window.location.reload()
         console.log(rep.data)
