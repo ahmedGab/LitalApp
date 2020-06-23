@@ -1,9 +1,8 @@
-<<<<<<< HEAD
-import {getAllUsers,getAllArticles} from '../../../redux/actions/index'
 
-=======
-import {getAllUsers,NumberUsers} from "../../../redux/actions"
->>>>>>> ef48c334ef85cb0b2274d910cf24d643bea27ef0
+import {getAllUsers,getAllArticles,NumberUsers} from '../../../redux/actions/index'
+
+
+
 import axios from "axios"
 
 //get all users from Api
