@@ -1,4 +1,4 @@
-import {GET_ALL_USERS,GET_NUMBER_USERS,GET_ALL_ARTICLES} from "./types"
+import {GET_ALL_USERS,GET_NUMBER_USERS,GET_ALL_ARTICLES,GET_HISTORIQUE} from "./types"
 export const getAllUsers=(payload)=>({
     type:GET_ALL_USERS,
     payload
@@ -10,6 +10,11 @@ export const getAllArticles=(payload)=>({
 })
 export const NumberUsers=(payload)=>({
     type:GET_NUMBER_USERS,
+    payload
+})
+
+export const getHistorique=(payload)=>({
+    type:GET_HISTORIQUE,
     payload
 })
 

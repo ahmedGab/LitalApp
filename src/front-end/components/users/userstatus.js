@@ -9,8 +9,8 @@ import "./users.css"
 // TODO: This is missing functionality for sub-menu here from SUI core examples.
 // The "Publish To Web" item should contain a sub-menu.
 
-const DropdownExampleDropdown = () => (
-  <Dropdown  text='Meriem'>
+const DropdownExampleDropdown = ({nom}) => (
+  <Dropdown  text={nom}>
     <Dropdown.Menu >
  <Link><Dropdown.Item  className="Dropdown-admin" text=' Compte' /> </Link>  
    <Link> <Dropdown.Item className="Dropdown-admin" text='Historique' /> </Link>  

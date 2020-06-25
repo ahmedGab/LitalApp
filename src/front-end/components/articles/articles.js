@@ -1,14 +1,23 @@
 import React,{useState,useEffect } from 'react'
-import { useDispatch } from "react-redux";
+import { useDispatch ,useSelector} from "react-redux";
 import { Header,Button } from 'semantic-ui-react'
 import EditeArticles from "./editearticles"
-import {DeleteArticles} from '../apis/json-server'
+import {DeleteArticles,getUsersFromApi} from '../apis/json-server'
 import {Container,Image,Table } from 'semantic-ui-react'
 
 
 function ListArticles(props){
-  const dispatch = useDispatch();
+  const users = useSelector(state => state.users);
 
+  const dispatch = useDispatch();
+  
+  
+
+
+
+
+  let name=users.filter(el=>el.id===props.idUser).map(el=>el.name).join("")
+  console.log(users.filter(el=>el.id===props.idUser).map(el=>el.name))
     return(
 <>
 
@@ -57,11 +66,11 @@ function ListArticles(props){
   {props.el.commentaire}
 </Table.Cell> 
 <Table.Cell className="items-user">
-<Button size='tiny' color="red" onClick={()=>dispatch(DeleteArticles(props.el.id))} ><i type="button" 
+<Button size='tiny' color="red" onClick={()=>dispatch(DeleteArticles(props.el.id,name,props.el.reference,props.el.image,new Date().getDate()+"/"+new Date().getMonth()+"/"+new Date().getFullYear(),new Date().getHours()+":"+new Date().getMinutes()))} ><i type="button" 
  className="trash  alternate outline icon"></i>  Supprimer</Button> 
 </Table.Cell> 
 <Table.Cell className="items-user">
-  <EditeArticles article={props.el}/>
+  <EditeArticles name={name} article={props.el}/>
 </Table.Cell> 
       </Table.Row>
     </Table.Body>

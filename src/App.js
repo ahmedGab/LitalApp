@@ -2,6 +2,8 @@ import React from 'react';
 import Login from "./front-end/components/authentification/login"
 import Users from "./front-end/components/users/listusers"
 import Articles from "./front-end/components/articles/listarticles"
+import ArticlesU from "./front-end/components/articles/listarticlesUser"
+
 import { Route, Switch } from "react-router-dom";
 import Historique from './front-end/components/historique';
 
@@ -17,6 +19,9 @@ function App() {
      </Route>
 <Route path="/articles">
 <Articles/>
+</Route>
+<Route path="/articlesUsers">
+<ArticlesU/>
 </Route>
      <Route path="/historique">
        <Historique />

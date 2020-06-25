@@ -1,4 +1,4 @@
-import {getAllUsers,getAllArticles,NumberUsers} from '../../../redux/actions/index'
+import {getAllUsers,getAllArticles,NumberUsers,getHistorique} from '../../../redux/actions/index'
 
 import axios from "axios"
 
@@ -19,22 +19,26 @@ export function getArticlesFromApi(){
 }
 //add article in api
 
-export function Addarticles(reference,nom,collection,type,mesure,quantity,couleur,phase,image,commentaire){
+export function Addarticles(reference,nom,collection,type,mesure,quantity,couleur,phase,image,commentaire,iduser,date,heure,lastname){
     return ()=>
-     axios.post("http://localhost:3004/articles",{reference,nom,collection,type,mesure,quantity,couleur,phase,image,commentaire}).then(rep=>{
+     axios.post("http://localhost:3004/articles",{reference,nom,collection,type,mesure,quantity,couleur,phase,image,commentaire})
+     .then(rep=>{
         
         window.location.reload()
+        axios.post("http://localhost:3004/historique",{iduser,lastname,action:"ajout",reference,image,date,heure})
         console.log(rep.data)
         }).catch(err=>console.log(err)) 
+        
 
 }
 
 //Edite Article
-export function EditeArticle(id,reference,nom,collection,type,mesure,quantity,couleur,phase,image,commentaire){
+export function EditeArticle(id,reference,nom,collection,type,mesure,quantity,couleur,phase,image,commentaire,iduser,lastname,date,heure){
     return ()=>
      axios.put(`http://localhost:3004/articles/${id}`,{reference,nom,collection,type,mesure,quantity,couleur,phase,image,commentaire}).then(rep=>{
         
         window.location.reload()
+        axios.post("http://localhost:3004/historique",{iduser,lastname,action:"modifier",reference,image,date,heure})
         console.log(rep.data)
         }).catch(err=>console.log(err)) 
 
@@ -59,11 +63,12 @@ export function DeleteUsers(id){
 }
 //delete Articles
 
-export function DeleteArticles(id){
+export function DeleteArticles(id,iduser,reference,image,date,heure){
     return ()=>
      axios.delete(`http://localhost:3004/articles/${id}`).then(rep=>{
         console.log(rep.data)
         window.location.reload()
+        axios.post("http://localhost:3004/historique",{iduser,reference,image,date,heure,action:"delete"})
         }).catch(err=>console.log(err)) 
 
 }
@@ -92,3 +97,9 @@ export function IncrementNumberAddUsers(id,data1){
         }).catch(err=>console.log(err)) 
 
 }
+export function getHistoriquefromApi(){
+    return (dispatch)=>
+    axios.get("http://localhost:3004/historique").then(rep=>{
+        dispatch(getHistorique(rep.data))
+        })
+    }

@@ -1,12 +1,12 @@
-import React,{useState} from 'react'
-import { useDispatch} from "react-redux";
+import React,{useState,useEffect} from 'react'
+import { useDispatch,useSelector} from "react-redux";
 
 import "../users/users.css"
 
 import { Button, Header, Icon, Modal, Form  } from 'semantic-ui-react'
-import {Addarticles} from "../apis/json-server"
+import {Addarticles,getUsersFromApi} from "../apis/json-server"
 
-const ModalExampleCloseIcon = () => {
+const ModalExampleCloseIcon = ({idUser}) => {
   const [reference,setRefrence]= useState("")
   const [nom,setNom]= useState("")
   const [type,setType]= useState("")
@@ -17,14 +17,19 @@ const ModalExampleCloseIcon = () => {
   const [phase,setPhase]= useState("")
   const [image,setImage]= useState("")
   const [commentaire,setCommentaire]= useState("")
+  const users = useSelector(state => state.users);
+ 
+
   const [fields]= useState({})
   const [errors,setErrors]= useState({})
 
 
   const dispatch = useDispatch();
-  
+  useEffect(() => {
+    dispatch(getUsersFromApi())
+}, [])
 
-
+console.log(users)
 
 
   function handleValidation(){
@@ -93,13 +98,15 @@ if(!fields["comment"]  ){
     return formIsValid
     
   }
-
+  let name=users.filter(el=>el.id===idUser).map(el=>el.name)
+  let lastname=users.filter(el=>el.id===idUser).map(el=>el.lastname)
 
 function articlesSubmit(e){
   e.preventDefault();
 
   if(handleValidation()){
-    dispatch(Addarticles(reference,nom,collection,type,mesure,quantity,couleur,phase,image,commentaire))   
+    dispatch(Addarticles(reference,nom,collection,type,mesure,quantity,couleur,phase,image,commentaire,name.join("")+lastname.join(""),new Date().getDate()+"/"+new Date().getMonth()+"/"+new Date().getFullYear(),new Date().getHours()+":"+new Date().getMinutes(),))   
+
      alert(nom+ " a été ajouté dans votre liste des produits ");
   }
 
@@ -123,7 +130,7 @@ setRefrence(f["ref"])
   
 }
 
-
+console.log(idUser)
   return(
   <div className="ui placeholder segment box-search">
   <div className="ui icon header search">

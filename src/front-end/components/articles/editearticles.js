@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 
-import { useDispatch} from "react-redux";
+import { useDispatch,useSelector} from "react-redux";
 import "../users/users.css"
 
 import { Button, Header, Icon, Modal, Form  } from 'semantic-ui-react'
@@ -35,8 +35,7 @@ const [commentaire,setCommentaire]= useState(props.article.commentaire)
   fields["comment"]=commentaire
   const dispatch = useDispatch();
   
-
-
+console.log(props.name)
 
 
   function handleValidation(){
@@ -111,7 +110,7 @@ function articlesSubmit(e){
   e.preventDefault();
 
   if(handleValidation()){
-    dispatch(EditeArticle(props.article.id,reference,nom,collection,type,mesure,quantity,couleur,phase,image,commentaire))
+    dispatch(EditeArticle(props.article.id,reference,nom,collection,type,mesure,quantity,couleur,phase,image,commentaire,props.name))
   
   }
 

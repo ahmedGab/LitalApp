@@ -1,4 +1,5 @@
 import React,{useState,useEffect } from 'react'
+
 import { useDispatch, useSelector } from "react-redux";
 import "./login.css"
 import {getUsersFromApi} from "../apis/json-server"
@@ -10,6 +11,8 @@ function LoginForm () {
  const [email,setEmail]= useState("")
  const [password,setPassword]= useState("")
  const [authAdmin,setauth]=useState(false)
+ const[authMod,setMod]=useState(false)
+ const [id,setid]=useState(0)
  const users = useSelector(state => state.users);
  const dispatch = useDispatch();
 
@@ -26,9 +29,10 @@ function verification(){
 let filteredUsers = users.filter(user => {
   return user.gmail === email && user.password === password &&  user.role==="admin"
 });
-
+let filtredModerateur=users.filter(user => {
+  return user.gmail === email && user.password === password &&  user.role==="user"
+});
 if (filteredUsers.length) {
-  setauth(true)
   // if login details are valid return user details
   let user = filteredUsers[0];
   let responseJson = {
@@ -36,13 +40,30 @@ if (filteredUsers.length) {
     name:user.name,
     mail: user.gmail,
     password: user.password,
+    
 };
+setid(responseJson.id)
 setauth(true)
  alert("bienvenue "+responseJson.name)
 }
- else {
-  alert('Username or password is incorrect');
+
+  if(filtredModerateur.length) {
+    
+ let user=filtredModerateur[0];
+ 
+ let responseModerateur={
+  id: user.id,
+  name:user.name,
+  mail: user.gmail,
+  password: user.password,
+ }
+ setMod(true)
+ setid(responseModerateur.id)
+
+ alert(responseModerateur.name)
 }
+
+
             }
  return (
     <div className="background-login">
@@ -67,14 +88,14 @@ setauth(true)
             onChange={e =>setPassword(e.target.value)}
 
           />
-             {authAdmin ?
-      
-   
+             {authAdmin &&!authMod ?
       <Button inverted color='brown' fluid size='large' onSubmit={verification}>
             Login
-          </Button> && <Redirect push to="/users" />
+          </Button> && <Redirect to={`/users/${id}`} />
 
-          : <Button inverted color='brown' fluid size='large' onClick={verification}>
+          : !authAdmin &&authMod?<Button inverted color='brown' fluid size='large' onSubmit={verification}>
+          Login
+        </Button> && <Redirect  to={"/articlesUsers/"+id} />:<Button inverted color='brown' fluid size='large' onClick={verification}>
           Login
         </Button>
 }

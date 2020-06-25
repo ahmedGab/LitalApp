@@ -1,8 +1,9 @@
  
 import React, { Component } from "react";
-import {getUsersFromApi} from "../apis/json-server"
+import {getUsersFromApi, getHistoriquefromApi} from "../apis/json-server"
 import { Link,Redirect} from "react-router-dom";
-
+import UserS from "../users/userstatus"
+import Historique from './historiquetable'
 import {
   Button,
   Divider,
@@ -25,6 +26,9 @@ class App extends Component {
   };
 componentDidMount(){
 this.props.getusers()
+let b=window.location.href[window.location.href.length-1]
+this.setState({id:b})
+this.props.gethistorique()
 }
   handleToggleDropdownMenu = () => {
     let newState = Object.assign({}, this.state);
@@ -38,7 +42,8 @@ this.props.getusers()
   };
 
   render() {
-  const  gestionnaireS=this.props.users.filter(el=>el.role==="user")
+  const  gestionnaireS=this.props.users.filter(el=>el.role==="user");
+ 
 
     return (
       <div className="App">
@@ -47,6 +52,10 @@ this.props.getusers()
             <Menu.Item header as="a">
               <img src="http://latelierlital.com/sites/default/files/logo_lital_0.png" alt="logo-lital" />
             </Menu.Item>
+            <Menu.Menu position="right">
+              
+              <Menu.Item  as="a"><UserS nom={this.props.users.filter(el=>el.id===Number(this.state.id)).map(el=>el.name)} /></Menu.Item>
+            </Menu.Menu>
         
           </Menu>
         </Grid>
@@ -87,12 +96,12 @@ this.props.getusers()
             id="sidebar"
           >
             <Menu vertical borderless fluid text>
-              <Menu.Item  as={Link} to='/users'>
-              Tableau de bord 
+              <Menu.Item  as={Link} to={"/users/"+this.state.id}>
+              Pages Modérateurs 
               </Menu.Item>
-              <Menu.Item as="a">Ajouter des articles</Menu.Item>
+              <Menu.Item as={Link} to={"/articles/"+this.state.id}>Page Articles</Menu.Item>
             
-              <Menu.Item active as={Link} to='/historique'>Historique</Menu.Item>
+              <Menu.Item active as="a">Historique</Menu.Item>
               <Divider hidden />
               <Menu.Item as="a">Page Facebook Lital</Menu.Item>
               <Menu.Item as="a">Site web Lital</Menu.Item>
@@ -161,8 +170,9 @@ this.props.getusers()
 
       </Table.Row>
     </Table.Header>
-   
-
+    {this.props.tabHistorique.map(el=>
+   <Historique el={el}/>
+    )}
     
     </Table>
 </Container>
@@ -174,9 +184,11 @@ this.props.getusers()
   }
 }
 const mapStateToProps=(state)=>({
-users:state.users
+users:state.users,
+tabHistorique:state.historique
 })
 const mapDispatchToProps=(dispatch)=>({
 getusers:()=>dispatch(getUsersFromApi())
+,gethistorique:()=>dispatch(getHistoriquefromApi())
 })
 export default connect (mapStateToProps,mapDispatchToProps)(App);

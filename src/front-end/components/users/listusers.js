@@ -29,6 +29,8 @@ class App extends Component {
   };
 componentDidMount(){
 this.props.getusers()
+let b=window.location.href[window.location.href.length-1]
+this.setState({id:b})
 }
   handleToggleDropdownMenu = () => {
     let newState = Object.assign({}, this.state);
@@ -46,6 +48,7 @@ this.props.getusers()
 
   render() {
   const  gestionnaireS=this.props.users.filter(el=>el.role==="user" && el.name.includes(this.state.search))
+ 
 
     return (
       <div className="App">
@@ -56,7 +59,7 @@ this.props.getusers()
             </Menu.Item>
             <Menu.Menu position="right">
               
-              <Menu.Item  as="a"><UserS/></Menu.Item>
+              <Menu.Item  as="a"><UserS nom={this.props.users.filter(el=>el.id===Number(this.state.id)).map(el=>el.name)} /></Menu.Item>
             </Menu.Menu>
           </Menu>
         </Grid>
@@ -85,7 +88,7 @@ this.props.getusers()
               vertical
               style={this.state.dropdownMenuStyle}
             >
-              <Menu.Item as="a"><UserS/></Menu.Item>
+              <Menu.Item as="a"><UserS nom={this.props.users.filter(el=>el.id===Number(this.state.id)).map(el=>el.name)}/></Menu.Item>
               
             </Menu>
           </Menu>
@@ -98,12 +101,13 @@ this.props.getusers()
             id="sidebar"
           >
             <Menu vertical borderless fluid text>
-              <Menu.Item active as={Link} to='/'>
+              <Menu.Item active as={Link} to={"/users/"+this.state.id}>
            Page Modérateurs
               </Menu.Item>
-              <Menu.Item as={Link} to="/articles">Page Articles</Menu.Item>
+              
+              <Menu.Item as={Link}  to={"/articles/"+this.state.id}>Page Articles</Menu.Item>
             
-              <Menu.Item as={Link} to='/historique'>Historique</Menu.Item>
+              <Menu.Item as={Link} to={"/historique/"+this.state.id}>Historique</Menu.Item>
               <Divider hidden />
               <Menu.Item as="a">Page Facebook Lital</Menu.Item>
               <Menu.Item as="a">Site web Lital</Menu.Item>

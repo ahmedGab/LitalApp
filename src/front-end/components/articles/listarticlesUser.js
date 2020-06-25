@@ -4,9 +4,11 @@ import {getArticlesFromApi} from "../apis/json-server"
 import Article from './articles'
 import { connect } from "react-redux";
 import AddArticle from "./addarticles"
-import UserS from "../users/userstatus"
+
 import "../users/users.css"
 import "./aticles.css"
+import UserS from "../users/userstatus"
+
 
 import { Link,Redirect} from "react-router-dom";
 
@@ -33,13 +35,15 @@ class App extends Component {
   };
 handlechange=(event)=>{
   this.setState({value: event.target.value});
+  let b=window.location.href[window.location.href.length-1]
+this.setState({id:b})
 
 }
 
   componentDidMount(){
     this.props.getarticles()
     let b=window.location.href[window.location.href.length-1]
-    this.setState({id:b})
+this.setState({id:b})
     }
     handlechangeInput=(e)=>{
       this.setState({ref:e.target.value})
@@ -47,7 +51,7 @@ handlechange=(event)=>{
     }
   render() {
     const  articles=this.props.articles
-   console.log(this.state.id)
+    const users=this.props.users
 
     return (
       <div className="App">
@@ -57,15 +61,15 @@ handlechange=(event)=>{
               <img src="http://latelierlital.com/sites/default/files/logo_lital_0.png" alt="logo-lital" />
             </Menu.Item>
             <Menu.Menu position="right">
-            <Menu.Item  as="a"><UserS nom={this.props.users.filter(el=>el.id===Number(this.state.id)).map(el=>el.name)} /></Menu.Item>
-            
+              
+              <Menu.Item  as="a"><UserS nom={users.filter(el=>el.id===Number(this.state.id)).map(el=>el.name)} /></Menu.Item>
             </Menu.Menu>
           </Menu>
         </Grid>
         <Grid padded className="mobile only">
           <Menu borderless inverted fluid fixed="top">
             <Menu.Item header as="a">
-              Project Name
+            
             </Menu.Item>
             <Menu.Menu position="right">
               <Menu.Item>
@@ -92,7 +96,9 @@ handlechange=(event)=>{
             </Menu>
           </Menu>
         </Grid>
+       
         <Grid padded>
+          
           <Grid.Column
             tablet={3}
             computer={3}
@@ -100,19 +106,17 @@ handlechange=(event)=>{
             id="sidebar"
           >
             <Menu vertical borderless fluid text>
-            <Menu.Item as={Link} to={"/users/"+this.state.id}>
-             Page Modérateurs
-              </Menu.Item>
+           
        
-              <Menu.Item active as={Link} to={'/articles/'+this.state.id}>Page Articles</Menu.Item>
-            
-              <Menu.Item  as={Link} to={'/historique/'+this.state.id}>Historique</Menu.Item>
+              <Menu.Item active as={Link} to='/articles'>page Articles</Menu.Item>
+         
               <Divider hidden />
               <Menu.Item as="a">Page Facebook Lital</Menu.Item>
               <Menu.Item as="a">Site web Lital</Menu.Item>
             
               
-            </Menu>
+            </Menu>:
+        
           </Grid.Column>
           <Grid.Column
             mobile={16}
@@ -186,7 +190,7 @@ handlechange=(event)=>{
   <p>{this.state.value}</p>
                 <Grid.Column mobile={16} tablet={16} computer={16}>
              
-            <AddArticle idUser={Number(this.state.id)} />
+            <AddArticle/>
           
                 </Grid.Column>
               </Grid.Row>
@@ -221,9 +225,9 @@ handlechange=(event)=>{
     {!this.state.value&&this.state.ref?
     articles.filter( 
       el=> el.reference.includes(this.state.ref) ).map( 
-      el=> <Article idUser={Number(this.state.id)} key={el.id} el={el} /> 
+      el=> <Article key={el.id} el={el} /> 
         ):!this.state.value&&!this.state.ref?articles.map( 
-          el=> <Article  idUser={Number(this.state.id)} key={el.id} el={el} /> 
+          el=> <Article key={el.id} el={el} /> 
             ):articles.filter(el=>el.nom===this.state.value || el.collection===this.state.value|| el.type===this.state.value || el.mesure===this.state.value || el.quantity==this.state.value|| el.couleur===this.state.value || el.phase===this.state.value).map( 
   el=> <Article key={el.id} el={el} />
     )
