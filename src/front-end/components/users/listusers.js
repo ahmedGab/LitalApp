@@ -25,12 +25,12 @@ class App extends Component {
     search:"",
     dropdownMenuStyle: {
       display: "none"
-    }
+    },
+   
   };
 componentDidMount(){
 this.props.getusers()
-let b=window.location.href[window.location.href.length-1]
-this.setState({id:b})
+this.setState({id:this.props.match.params.id})
 }
   handleToggleDropdownMenu = () => {
     let newState = Object.assign({}, this.state);
@@ -48,6 +48,7 @@ this.setState({id:b})
 
   render() {
   const  gestionnaireS=this.props.users.filter(el=>el.role==="user" && el.name.includes(this.state.search))
+  console.log("id1",this.props.match.params.id)
  
 
     return (

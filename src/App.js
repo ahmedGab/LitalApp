@@ -11,21 +11,17 @@ function App() {
   return (
     <div className="App">
     <Switch>
-      <Route exact path="/">
-     <Login />
-     </Route>
-     <Route path="/users">
-       <Users />
-     </Route>
-<Route path="/articles">
-<Articles/>
-</Route>
-<Route path="/articlesUsers">
-<ArticlesU/>
-</Route>
-     <Route path="/historique">
-       <Historique />
-     </Route>
+      <Route exact path="/" component={Login}/>
+ 
+     <Route path="/users/:id" component={Users}/>
+      
+<Route path="/articles/:id" component={Articles} />
+
+<Route path="/articlesUsers/:id" component={ArticlesU}/>
+
+     <Route path="/historique/:id"  component={Historique} />
+   
+ 
      
 
      </Switch>

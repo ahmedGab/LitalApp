@@ -38,7 +38,7 @@ export function EditeArticle(id,reference,nom,collection,type,mesure,quantity,co
      axios.put(`http://localhost:3004/articles/${id}`,{reference,nom,collection,type,mesure,quantity,couleur,phase,image,commentaire}).then(rep=>{
         
         window.location.reload()
-        axios.post("http://localhost:3004/historique",{iduser,lastname,action:"modifier",reference,image,date,heure})
+        axios.post("http://localhost:3004/historique",{iduser,action:"modifier",reference,image,date,heure})
         console.log(rep.data)
         }).catch(err=>console.log(err)) 
 

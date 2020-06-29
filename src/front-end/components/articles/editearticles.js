@@ -16,7 +16,7 @@ const [type,setType]= useState(props.article.type)
 const [mesure,setMesure]= useState(props.article.mesure)
 const [collection,setCollection]= useState(props.article.collection)
 const [quantity,setQuantity]= useState(props.article.quantity)
-const [couleur, setCouleur]= useState("")
+const [couleur, setCouleur]= useState(props.article.couleur)
 
 const [phase,setPhase]= useState(props.article.phase)
 const [image,setImage]= useState(props.article.image)
@@ -110,8 +110,8 @@ function articlesSubmit(e){
   e.preventDefault();
 
   if(handleValidation()){
-    dispatch(EditeArticle(props.article.id,reference,nom,collection,type,mesure,quantity,couleur,phase,image,commentaire,props.name))
-  
+    dispatch(EditeArticle(props.article.id,reference,nom,collection,type,mesure,quantity,couleur,phase,image,commentaire,props.name, "",new Date().getDate()+"/"+new Date().getMonth()+"/"+new Date().getFullYear() ,new Date().getHours()+":"+(new Date().getMinutes()<10?'0':''+new Date().getMinutes())))
+    
   }
 
 

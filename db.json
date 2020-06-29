@@ -16,36 +16,12 @@
       "id": 2
     },
     {
-      "name": "flen",
+      "name": "amina",
       "role": "user",
-      "lastname": "falten",
-      "gmail": "ag@gmail.com",
-      "password": "aaaaaaae",
-      "id": 3
-    },
-    {
-      "name": "ranya",
-      "role": "user",
-      "lastname": "gabsi",
-      "gmail": "us23456@gmail.com",
+      "lastname": "laabidi",
+      "gmail": "amina1@gmail.com",
       "password": "123456",
       "id": 4
-    },
-    {
-      "role": "user",
-      "name": "naziha",
-      "lastname": "hamami",
-      "gmail": "nazihah@gmail.com",
-      "password": "123456",
-      "id": 5
-    },
-    {
-      "name": "ll",
-      "role": "user",
-      "lastname": "ajna",
-      "gmail": "adaaaa@gmail.com",
-      "password": "145555",
-      "id": 8
     },
     {
       "id": 9,
@@ -53,59 +29,54 @@
       "gmail": "adm@gmail.com",
       "password": "aaa",
       "name": "admin1"
+    },
+    {
+      "role": "user",
+      "name": "Manel",
+      "lastname": "hamdani",
+      "gmail": "manel@gmail.com",
+      "password": "123456789",
+      "id": 10
+    },
+    {
+      "role": "user",
+      "name": "amina",
+      "lastname": "laabidi",
+      "gmail": "amina@gmail.com",
+      "password": "123456789",
+      "id": 11
+    },
+    {
+      "role": "user",
+      "name": "aaa",
+      "lastname": "zzz",
+      "gmail": "aaaaaaa@gmail.com",
+      "password": "rrrrkhjkh",
+      "id": 12
     }
   ],
   "numberAddUsers": [
     {
       "id": 1,
-      "number": 7
+      "number": 3
     }
   ],
   "articles": [
     {
-      "reference": "az",
-      "nom": "a",
-      "collection": "1",
-      "type": "2",
-      "mesure": "3",
-      "quantity": "4",
-      "couleur": "5",
-      "phase": "6",
-      "image": "7",
-      "commentaire": "8",
-      "action": "a ajouté le a",
-      "id": 10
+      "reference": "aahjkad",
+      "nom": "fkljzflz",
+      "collection": "fklfjl",
+      "type": "f,:fn,lk",
+      "mesure": "zflfjz",
+      "quantity": "a",
+      "couleur": "zfkljfzkl",
+      "phase": "kzjzf",
+      "image": "zfkljzf",
+      "commentaire": "zflmfzjk",
+      "id": 1
     },
     {
-      "reference": "4",
-      "nom": "k",
-      "collection": "1",
-      "type": "2",
-      "mesure": "3",
-      "quantity": "4",
-      "couleur": "5",
-      "phase": "6",
-      "image": "7",
-      "commentaire": "8",
-      "action": "a ajouté le k",
-      "id": 11
-    },
-    {
-      "reference": "a",
-      "nom": "z",
-      "collection": "ert",
-      "type": "u",
-      "mesure": "u",
-      "quantity": "i",
-      "couleur": "t",
-      "phase": "u",
-      "image": "i",
-      "commentaire": "b",
-      "action": "a ajouté le z",
-      "id": 12
-    },
-    {
-      "reference": "a",
+      "reference": "b",
       "nom": "z",
       "collection": "e",
       "type": "r",
@@ -113,51 +84,35 @@
       "quantity": "y",
       "couleur": "u",
       "phase": "i",
-      "image": "f",
-      "commentaire": "f",
-      "action": "undefineda ajouté le z",
-      "id": 13
+      "image": "l",
+      "commentaire": "l",
+      "id": 2
     },
     {
-      "reference": "ze",
-      "nom": "e",
-      "collection": "r",
-      "type": "y",
-      "mesure": "u",
-      "quantity": "u",
-      "couleur": "i",
-      "phase": "o",
-      "image": "g",
-      "commentaire": "h",
-      "action": "undefineda ajouté le e",
-      "id": 14
-    },
-    {
-      "reference": "4",
-      "nom": "jj",
-      "collection": "kk",
-      "type": "kkk",
-      "mesure": "aa",
-      "quantity": "44",
-      "couleur": "aa",
-      "phase": "aa",
-      "image": "aaa",
-      "commentaire": "hhhhhh",
-      "action": "undefineda ajouté le jj",
-      "id": 15
-    },
-    {
-      "reference": "a",
-      "nom": "a",
-      "collection": "a",
-      "type": "q",
-      "mesure": "jsjsj",
-      "quantity": "100",
-      "couleur": "rouge",
+      "reference": "123",
+      "nom": "sacamain",
+      "collection": "mm",
+      "type": "S",
+      "mesure": "25",
+      "quantity": "20",
+      "couleur": "hh",
       "phase": "prototype",
-      "image": "hzhzhzhzhzhzhzh",
-      "commentaire": "hhzhhzhzhzhz",
-      "id": 16
+      "image": "url",
+      "commentaire": "bcbcb",
+      "id": 4
+    },
+    {
+      "reference": "z",
+      "nom": "rt",
+      "collection": "y",
+      "type": "u",
+      "mesure": "h",
+      "quantity": "j",
+      "couleur": "k",
+      "phase": "l",
+      "image": "v",
+      "commentaire": "b",
+      "id": 5
     },
     {
       "reference": "a",
@@ -166,83 +121,328 @@
       "type": "r",
       "mesure": "t",
       "quantity": "y",
-      "couleur": "u",
-      "phase": "i",
-      "image": "g",
+      "couleur": "g",
+      "phase": "h",
       "commentaire": "h",
-      "id": 17
-    },
-    {
-      "reference": "a",
-      "nom": "z",
-      "collection": "e",
-      "type": "r",
-      "mesure": "t",
-      "quantity": "y",
-      "couleur": "u",
-      "phase": "i",
-      "image": "o",
-      "commentaire": "p",
-      "id": 18
-    },
-    {
-      "reference": "ujhhj",
-      "nom": "kkjj",
-      "collection": "jnj",
-      "type": "kjk",
-      "mesure": "kjkj",
-      "quantity": "kkj",
-      "couleur": "kkk",
-      "phase": "kkk",
-      "image": "ooo",
-      "commentaire": "ooo",
-      "id": 19
-    },
-    {
-      "reference": "a",
-      "nom": "z",
-      "collection": "e",
-      "type": "r",
-      "mesure": "t",
-      "quantity": "y",
-      "couleur": "u",
-      "phase": "i",
-      "image": "u",
-      "commentaire": "u",
-      "id": 20
-    },
-    {
-      "reference": "789621",
-      "nom": "z",
-      "collection": "e",
-      "type": "r",
-      "mesure": "t",
-      "quantity": "y",
-      "couleur": "u",
-      "phase": "i",
-      "image": "o",
-      "commentaire": "p",
-      "id": 21
+      "id": 6
     }
   ],
   "historique": [
     {
-      "iduser": "Meriem",
+      "iduser": "",
       "action": "ajout",
-      "reference": "789621",
-      "image": "o",
-      "date": "25/5/2020",
-      "heure": "16:54",
+      "reference": "aahjkad",
+      "image": "zfkljzf",
+      "date": "26/5/2020",
+      "heure": "11:25",
       "id": 1
     },
     {
-      "iduser": "Meriem",
+      "iduser": "",
+      "action": "ajout",
       "reference": "a",
-      "image": "z",
-      "date": "25/5/2020",
-      "heure": "16:58",
-      "action": "delete",
+      "image": "l",
+      "date": "26/5/2020",
+      "heure": "11:26",
       "id": 2
+    },
+    {
+      "iduser": "",
+      "action": "ajout",
+      "reference": "z",
+      "image": "u",
+      "date": "26/5/2020",
+      "heure": "11:27",
+      "id": 3
+    },
+    {
+      "iduser": "",
+      "action": "ajout",
+      "reference": "123",
+      "image": "url",
+      "date": "26/5/2020",
+      "heure": "11:35",
+      "id": 4
+    },
+    {
+      "iduser": "",
+      "action": "ajout",
+      "reference": "aaa",
+      "image": "kekek",
+      "date": "26/5/2020",
+      "heure": "11:37",
+      "id": 5
+    },
+    {
+      "iduser": "Meriem",
+      "reference": "z",
+      "image": "u",
+      "date": "26/5/2020",
+      "heure": "12:26",
+      "action": "delete",
+      "id": 6
+    },
+    {
+      "iduser": "",
+      "action": "ajout",
+      "reference": "z",
+      "image": "h",
+      "date": "26/5/2020",
+      "heure": "12:30",
+      "id": 7
+    },
+    {
+      "iduser": "ahmed",
+      "reference": "z",
+      "image": "h",
+      "date": "26/5/2020",
+      "heure": "12:35",
+      "action": "delete",
+      "id": 8
+    },
+    {
+      "iduser": "ahmed",
+      "action": "ajout",
+      "reference": "a",
+      "image": "fklkffk",
+      "date": "26/5/2020",
+      "heure": "15:36",
+      "id": 9
+    },
+    {
+      "iduser": "",
+      "action": "ajout",
+      "reference": "a",
+      "image": "j",
+      "date": "26/5/2020",
+      "heure": "15:38",
+      "id": 10
+    },
+    {
+      "iduser": "",
+      "reference": "a",
+      "image": "j",
+      "date": "26/5/2020",
+      "heure": "15:39",
+      "action": "delete",
+      "id": 11
+    },
+    {
+      "iduser": "amina",
+      "action": "modifier",
+      "reference": "a",
+      "image": "fklkffk",
+      "id": 12
+    },
+    {
+      "iduser": "Manel",
+      "action": "ajout",
+      "reference": "azzz",
+      "image": "hfhfjff",
+      "date": "26/5/2020",
+      "heure": "16:22",
+      "id": 13
+    },
+    {
+      "iduser": "Manel",
+      "reference": "azzz",
+      "image": "hfhfjff",
+      "date": "26/5/2020",
+      "heure": "16:23",
+      "action": "delete",
+      "id": 14
+    },
+    {
+      "iduser": "Manel",
+      "action": "modifier",
+      "reference": "a",
+      "image": "fklkffk",
+      "id": 15
+    },
+    {
+      "iduser": "Manel",
+      "lastname": "26/5/2020",
+      "action": "modifier",
+      "reference": "a",
+      "image": "fklkffk",
+      "date": "16:43",
+      "id": 16
+    },
+    {
+      "iduser": "Manel",
+      "action": "modifier",
+      "reference": "a",
+      "image": "fklkffk",
+      "date": "16:45",
+      "id": 17
+    },
+    {
+      "iduser": "Manel",
+      "action": "modifier",
+      "reference": "a",
+      "image": "fklkffk",
+      "date": "16:59",
+      "heure": "16:59",
+      "id": 18
+    },
+    {
+      "iduser": "Manel",
+      "action": "modifier",
+      "reference": "a",
+      "image": "fklkffk",
+      "date": "26/5/2020",
+      "heure": "17:0",
+      "id": 19
+    },
+    {
+      "iduser": "Manel",
+      "reference": "a",
+      "image": "fklkffk",
+      "date": "26/5/2020",
+      "heure": "17:0",
+      "action": "delete",
+      "id": 20
+    },
+    {
+      "iduser": "Manel",
+      "action": "modifier",
+      "reference": "123",
+      "image": "url",
+      "date": "26/5/2020",
+      "heure": "17:1",
+      "id": 21
+    },
+    {
+      "iduser": "Manel",
+      "action": "modifier",
+      "reference": "123",
+      "image": "url",
+      "date": "26/5/2020",
+      "heure": "",
+      "id": 22
+    },
+    {
+      "iduser": "Manel",
+      "action": "modifier",
+      "reference": "123",
+      "image": "url",
+      "date": "26/5/2020",
+      "heure": "",
+      "id": 23
+    },
+    {
+      "iduser": "Manel",
+      "action": "modifier",
+      "reference": "123",
+      "image": "url",
+      "date": "26/5/2020",
+      "heure": false,
+      "id": 24
+    },
+    {
+      "iduser": "Manel",
+      "action": "modifier",
+      "reference": "123",
+      "image": "url",
+      "date": "26/5/2020",
+      "heure": "17:9",
+      "id": 25
+    },
+    {
+      "iduser": "Manel",
+      "action": "modifier",
+      "reference": "123",
+      "image": "url",
+      "date": "17:13",
+      "heure": "17:13",
+      "id": 26
+    },
+    {
+      "iduser": "Manel",
+      "action": "modifier",
+      "reference": "123",
+      "image": "url",
+      "id": 27
+    },
+    {
+      "iduser": "Manel",
+      "action": "modifier",
+      "reference": "123",
+      "image": "url",
+      "date": "26/5/2020",
+      "heure": "17:18",
+      "id": 28
+    },
+    {
+      "iduser": "Meriem",
+      "action": "modifier",
+      "reference": "123",
+      "image": "url",
+      "date": "26/5/2020",
+      "heure": "22",
+      "id": 29
+    },
+    {
+      "iduser": "Manel",
+      "action": "modifier",
+      "reference": "123",
+      "image": "url",
+      "date": "26/5/2020",
+      "heure": "17:24",
+      "id": 30
+    },
+    {
+      "iduser": "Manel",
+      "action": "modifier",
+      "reference": "123",
+      "image": "url",
+      "date": "26/5/2020",
+      "heure": "17:25",
+      "id": 31
+    },
+    {
+      "iduser": "Manel",
+      "action": "ajout",
+      "reference": "z",
+      "image": "v",
+      "date": "26/5/2020",
+      "heure": "17:25",
+      "id": 32
+    },
+    {
+      "iduser": "Manel",
+      "action": "ajout",
+      "reference": "a",
+      "date": "26/5/2020",
+      "heure": "17:54",
+      "id": 33
+    },
+    {
+      "iduser": "Meriem",
+      "action": "modifier",
+      "reference": "b",
+      "image": "l",
+      "date": "29/5/2020",
+      "heure": "20:0",
+      "id": 34
+    },
+    {
+      "iduser": "Manel",
+      "action": "modifier",
+      "reference": "aahjkad",
+      "image": "zfkljzf",
+      "date": "29/5/2020",
+      "heure": "22:20",
+      "id": 35
+    },
+    {
+      "iduser": "Manel",
+      "action": "modifier",
+      "reference": "aahjkad",
+      "image": "zfkljzf",
+      "date": "29/5/2020",
+      "heure": "22:21",
+      "id": 36
     }
   ]
 }

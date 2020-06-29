@@ -1,5 +1,9 @@
 import React,{useState,useEffect} from 'react'
 import { useDispatch,useSelector} from "react-redux";
+import ImageUploader from 'react-images-upload';
+import ImageUploading from "react-images-uploading";
+
+
 
 import "../users/users.css"
 
@@ -17,6 +21,7 @@ const ModalExampleCloseIcon = ({idUser}) => {
   const [phase,setPhase]= useState("")
   const [image,setImage]= useState("")
   const [commentaire,setCommentaire]= useState("")
+  const[pictures,setPictures]=useState([])
   const users = useSelector(state => state.users);
  
 
@@ -30,6 +35,14 @@ const ModalExampleCloseIcon = ({idUser}) => {
 }, [])
 
 console.log(users)
+
+const onChange  =  ( imageList )  =>  { 
+  // données pour soumettre la 
+  console . log ( imageList ) ; 
+} ;
+
+
+
 
 
   function handleValidation(){
@@ -83,10 +96,7 @@ if(!fields["couleur"]  ){
   err["couleur"] = "ce champs ne doit pas être pas vide ";
 }
 //image
-if(!fields["image"]  ){
-  formIsValid = false;
-  err["image"] = "ce champs ne doit pas être pas vide ";
-}
+
 
 //commentaire
 if(!fields["comment"]  ){
@@ -100,12 +110,13 @@ if(!fields["comment"]  ){
   }
   let name=users.filter(el=>el.id===idUser).map(el=>el.name)
   let lastname=users.filter(el=>el.id===idUser).map(el=>el.lastname)
+  console.log(name)
 
 function articlesSubmit(e){
   e.preventDefault();
 
   if(handleValidation()){
-    dispatch(Addarticles(reference,nom,collection,type,mesure,quantity,couleur,phase,image,commentaire,name.join("")+lastname.join(""),new Date().getDate()+"/"+new Date().getMonth()+"/"+new Date().getFullYear(),new Date().getHours()+":"+new Date().getMinutes(),))   
+    dispatch(Addarticles(reference,nom,collection,type,mesure,quantity,couleur,phase,image,commentaire,name.join(""),new Date().getDate()+"/"+new Date().getMonth()+"/"+new Date().getFullYear(),new Date().getHours()+":"+(new Date().getMinutes()<10?'0':''+new Date().getMinutes()),))   
 
      alert(nom+ " a été ajouté dans votre liste des produits ");
   }
@@ -129,13 +140,17 @@ setRefrence(f["ref"])
     
   
 }
+const onDrop=(picture) =>
+  {
+        setPictures( pictures.concat(picture))
+  }
 
 console.log(idUser)
+const maxNumber = 10;
+const maxMbFileSize = 5 * 1024 * 1024;
   return(
   <div className="ui placeholder segment box-search">
-  <div className="ui icon header search">
-    <i className="dont icon"></i>
-    Aucun utilisateur n'a encore été ajouté  </div>
+ 
   <Modal trigger={  
  <Button color='vk'>
   <i className="download icon"></i> <span> Ajouter un Article</span>
@@ -203,8 +218,7 @@ console.log(idUser)
     </Form.Group>
     <Form.Group widths={2}>
     <div className="bloc-error">
-    <Form.Input className="input-add" label="Image" placeholder= "ajouter image d'article"
-        onChange={e =>{handleChange("image",e)}} value={fields["image"]} />
+    
              <p  style={{color: "#d93025"}}> {errors["image"]} </p> 
 
        </div>
@@ -216,6 +230,8 @@ console.log(idUser)
       {/* <Form.Input label='Commentaire' placeholder='ajouter un commentaire' type="commentaire" 
       onChange={e => setCommentaire(e.target.value)} /> */}
     </Form.Group>
+
+   
     <div className="btn-modal">
       <Button color='blue' type="submit" >
           <Icon name='checkmark' /> Ajouter
