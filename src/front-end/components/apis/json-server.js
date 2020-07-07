@@ -19,9 +19,9 @@ export function getArticlesFromApi(){
 }
 //add article in api
 
-export function Addarticles(reference,nom,collection,type,mesure,quantity,couleur,phase,image,commentaire,iduser,date,heure,lastname){
+export function Addarticles(reference,nom,collection,type,mesure,quantity,couleur,phase,marque,image,commentaire,iduser,date,heure,lastname){
     return ()=>
-     axios.post("http://localhost:3004/articles",{reference,nom,collection,type,mesure,quantity,couleur,phase,image,commentaire})
+     axios.post("http://localhost:3004/articles",{reference,nom,collection,type,mesure,quantity,couleur,phase,marque,image,commentaire})
      .then(rep=>{
         
         window.location.reload()
@@ -33,9 +33,9 @@ export function Addarticles(reference,nom,collection,type,mesure,quantity,couleu
 }
 
 //Edite Article
-export function EditeArticle(id,reference,nom,collection,type,mesure,quantity,couleur,phase,image,commentaire,iduser,lastname,date,heure){
+export function EditeArticle(id,reference,nom,collection,type,mesure,quantity,couleur,phase,marque,image,commentaire,iduser,lastname,date,heure){
     return ()=>
-     axios.put(`http://localhost:3004/articles/${id}`,{reference,nom,collection,type,mesure,quantity,couleur,phase,image,commentaire}).then(rep=>{
+     axios.put(`http://localhost:3004/articles/${id}`,{reference,nom,collection,type,mesure,quantity,couleur,phase,marque,image,commentaire}).then(rep=>{
         
         window.location.reload()
         axios.post("http://localhost:3004/historique",{iduser,action:"modifier",reference,image,date,heure})

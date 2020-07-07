@@ -235,6 +235,7 @@ console.log(this.state.valuephase)
         <Table.HeaderCell>Quantité</Table.HeaderCell>
         <Table.HeaderCell>Couleur</Table.HeaderCell>
         <Table.HeaderCell>Phase</Table.HeaderCell>
+        <Table.HeaderCell>Marque</Table.HeaderCell>
         <Table.HeaderCell>image</Table.HeaderCell>
         <Table.HeaderCell>Commentaire</Table.HeaderCell>
         <Table.HeaderCell>Suppression</Table.HeaderCell>

@@ -56,14 +56,17 @@ function ListArticles(props){
   {props.el.phase}
 </td> 
 <td className="items-user">
-  {props.el.image}
+  {props.el.marque}
+</td> 
+<td className="items-user">
+ <img src={props.el.image} alt="logo" />
 </td> 
 <td className="items-user">
   {props.el.commentaire}
 </td> 
 <td className="items-user">
-<Button size='tiny' color="red" onClick={()=>dispatch(DeleteArticles(props.el.id,name,props.el.reference,props.el.image,new Date().getDate()+"/"+new Date().getMonth()+"/"+new Date().getFullYear(),new Date().getHours()+":"+(new Date().getMinutes()<10?'0':''+new Date().getMinutes())))} ><i type="button" 
- className="trash  alternate outline icon"></i>  Supprimer</Button> 
+<Button circular icon color="red" onClick={()=>dispatch(DeleteArticles(props.el.id,name,props.el.reference,props.el.marque,props.el.image,new Date().getDate()+"/"+new Date().getMonth()+"/"+new Date().getFullYear(),new Date().getHours()+":"+(new Date().getMinutes()<10?'0':''+new Date().getMinutes())))} ><i type="button" 
+ className="trash  alternate outline icon"></i>  </Button> 
 </td> 
 <td className="items-user">
   <EditeArticles name={name} article={props.el}/>

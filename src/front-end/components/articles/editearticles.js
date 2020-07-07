@@ -19,6 +19,7 @@ const [quantity,setQuantity]= useState(props.article.quantity)
 const [couleur, setCouleur]= useState(props.article.couleur)
 
 const [phase,setPhase]= useState(props.article.phase)
+const [marque,setMarque]= useState(props.article.marque)
 const [image,setImage]= useState(props.article.image)
 const [commentaire,setCommentaire]= useState(props.article.commentaire)
   const [fields]= useState({})
@@ -31,6 +32,7 @@ const [commentaire,setCommentaire]= useState(props.article.commentaire)
   fields["quantity"]=quantity
   fields["couleur"]=couleur
   fields["phase"]=phase
+  fields["marque"]=marque
   fields["image"]=image
   fields["comment"]=commentaire
   const dispatch = useDispatch();
@@ -88,6 +90,10 @@ if(!fields["couleur"]  ){
   formIsValid = false;
   err["couleur"] = "ce champs ne doit pas être pas vide ";
 }
+if(!fields["marque"]  ){
+  formIsValid = false;
+  err["marque"] = "ce champs ne doit pas être pas vide ";
+}
 //image
 if(!fields["image"]  ){
   formIsValid = false;
@@ -110,7 +116,7 @@ function articlesSubmit(e){
   e.preventDefault();
 
   if(handleValidation()){
-    dispatch(EditeArticle(props.article.id,reference,nom,collection,type,mesure,quantity,couleur,phase,image,commentaire,props.name, "",new Date().getDate()+"/"+new Date().getMonth()+"/"+new Date().getFullYear() ,new Date().getHours()+":"+(new Date().getMinutes()<10?'0':''+new Date().getMinutes())))
+    dispatch(EditeArticle(props.article.id,reference,nom,collection,type,mesure,quantity,couleur,phase,marque,image,commentaire,props.name, "",new Date().getDate()+"/"+new Date().getMonth()+"/"+new Date().getFullYear() ,new Date().getHours()+":"+(new Date().getMinutes()<10?'0':''+new Date().getMinutes())))
     
   }
 
@@ -127,6 +133,7 @@ setRefrence(f["ref"])
   setQuantity(f["quantity"])
   setType(f["type"])
    setImage(f["image"])
+   setMarque(f["marque"])
   setPhase(f["phase"])
   setCouleur(f["couleur"]) 
   setCommentaire(f["comment"])   
@@ -138,7 +145,7 @@ setRefrence(f["ref"])
   return(
     <div>
   <Modal trigger={  
-    <Button size='tiny' color='blue' ><i class="sync  alternate icon"></i>  Modifier</Button>
+    <Button circular icon  color='blue' ><i class="sync  alternate icon"></i>  </Button>
   } closeIcon>
 
     <Header icon='download icon' content='' />
@@ -202,17 +209,24 @@ setRefrence(f["ref"])
     </Form.Group>
     <Form.Group widths={2}>
     <div className="bloc-error">
+    <Form.Input className="input-add" label="marqued'article" placeholder="marque d'article" type="text" 
+     onChange={e =>{handleChange("marque",e)}} value={fields["marque"]} />
+             <p  style={{color: "#d93025"}}> {errors["marque"]} </p> 
+            
+       </div>
+       <div className="bloc-error">
     <Form.Input className="input-add" label="Image" placeholder= "ajouter image d'article"
         onChange={e =>{handleChange("image",e)}} value={fields["image"]} defaultValue={image} />
              <p  style={{color: "#d93025"}}> {errors["image"]} </p> 
 
        </div>
-       <div className="bloc-error">
+       
+    </Form.Group>
+    <div className="bloc-error">
     <textarea  className="input-add" label='Commentaire'placeholder="Ajouter un commentaire"   onChange={e =>{handleChange("comment",e)}} value={fields["comment"]} defaultValue={commentaire} ></textarea>
     <p  style={{color: "#d93025"}}> {errors["comment"]} </p> 
 
     </div>
-    </Form.Group>
     <div className="btn-modal">
       <Button color='blue' type="submit" >
           <Icon name='checkmark' /> 

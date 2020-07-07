@@ -61,72 +61,7 @@
       "number": 3
     }
   ],
-  "articles": [
-    {
-      "reference": "aahjkad",
-      "nom": "fkljzflz",
-      "collection": "fklfjl",
-      "type": "f,:fn,lk",
-      "mesure": "zflfjz",
-      "quantity": "a",
-      "couleur": "zfkljfzkl",
-      "phase": "kzjzf",
-      "image": "zfkljzf",
-      "commentaire": "zflmfzjk",
-      "id": 1
-    },
-    {
-      "reference": "b",
-      "nom": "z",
-      "collection": "e",
-      "type": "r",
-      "mesure": "t",
-      "quantity": "y",
-      "couleur": "u",
-      "phase": "i",
-      "image": "l",
-      "commentaire": "l",
-      "id": 2
-    },
-    {
-      "reference": "123",
-      "nom": "sacamain",
-      "collection": "mm",
-      "type": "S",
-      "mesure": "25",
-      "quantity": "20",
-      "couleur": "hh",
-      "phase": "prototype",
-      "image": "url",
-      "commentaire": "bcbcb",
-      "id": 4
-    },
-    {
-      "reference": "z",
-      "nom": "rt",
-      "collection": "y",
-      "type": "u",
-      "mesure": "h",
-      "quantity": "j",
-      "couleur": "k",
-      "phase": "l",
-      "image": "v",
-      "commentaire": "b",
-      "id": 5
-    },
-    {
-      "reference": "a",
-      "nom": "z",
-      "collection": "e",
-      "type": "r",
-      "mesure": "t",
-      "quantity": "y",
-      "couleur": "g",
-      "phase": "h",
-      "commentaire": "h",
-      "id": 6
-    }
-  ],
+  "articles": [],
   "historique": [
     {
       "iduser": "",
@@ -443,6 +378,210 @@
       "date": "29/5/2020",
       "heure": "22:21",
       "id": 36
+    },
+    {
+      "iduser": "Meriem",
+      "action": "ajout",
+      "reference": "a",
+      "date": "30/5/2020",
+      "heure": "14:22",
+      "id": 37
+    },
+    {
+      "iduser": "Meriem",
+      "reference": "a",
+      "date": "30/5/2020",
+      "heure": "14:22",
+      "action": "delete",
+      "id": 38
+    },
+    {
+      "iduser": "30/5/2020",
+      "action": "ajout",
+      "reference": "a",
+      "image": "aaaa",
+      "date": "14:47",
+      "id": 39
+    },
+    {
+      "iduser": "30/5/2020",
+      "action": "ajout",
+      "reference": "a",
+      "image": "g",
+      "date": "14:48",
+      "id": 40
+    },
+    {
+      "iduser": "30/5/2020",
+      "action": "ajout",
+      "reference": "a",
+      "image": "x",
+      "date": "14:49",
+      "id": 41
+    },
+    {
+      "iduser": "30/5/2020",
+      "action": "ajout",
+      "reference": "a",
+      "image": "cc",
+      "date": "14:50",
+      "id": 42
+    },
+    {
+      "iduser": "Meriem",
+      "reference": "a",
+      "image": "https://www.tanns.fr/1900-thickbox_default/sac-aime-bleu.jpg",
+      "date": "cc",
+      "heure": "30/5/2020",
+      "action": "delete",
+      "id": 43
+    },
+    {
+      "iduser": "Meriem",
+      "reference": "a",
+      "image": "https://www.tanns.fr/1900-thickbox_default/sac-aime-bleu.jpg",
+      "date": "x",
+      "heure": "30/5/2020",
+      "action": "delete",
+      "id": 44
+    },
+    {
+      "iduser": "30/5/2020",
+      "action": "ajout",
+      "reference": "a",
+      "image": "mu",
+      "date": "14:53",
+      "id": 45
+    },
+    {
+      "iduser": "Meriem",
+      "action": "ajout",
+      "reference": "a",
+      "image": "p",
+      "date": "30/5/2020",
+      "heure": "15:0",
+      "id": 46
+    },
+    {
+      "iduser": "Meriem",
+      "action": "ajout",
+      "reference": "a",
+      "image": "https://www.tanns.fr/1900-thickbox_default/sac-aime-bleu.jpg",
+      "date": "30/5/2020",
+      "heure": "15:0",
+      "id": 47
+    },
+    {
+      "iduser": "Meriem",
+      "action": "modifier",
+      "reference": "aahjkad",
+      "image": "zfkljzf",
+      "date": "30/5/2020",
+      "heure": "15:13",
+      "id": 48
+    },
+    {
+      "iduser": "Meriem",
+      "action": "modifier",
+      "reference": "aahjkad",
+      "image": "zfkljzf",
+      "date": "30/5/2020",
+      "heure": "15:14",
+      "id": 49
+    },
+    {
+      "iduser": "Meriem",
+      "action": "modifier",
+      "reference": "aahjkad",
+      "image": "https://www.balzac-paris.fr/media/catalog/product/cache/1/image/1170x1754/9df78eab33525d08d6e5fb8d27136e95/s/e/se19_sac_ce_sar_noir_chaine_tresse_e_4.jpg",
+      "date": "30/5/2020",
+      "heure": "15:17",
+      "id": 50
+    },
+    {
+      "iduser": "Meriem",
+      "reference": "aahjkad",
+      "image": "aaa",
+      "date": "https://www.balzac-paris.fr/media/catalog/product/cache/1/image/1170x1754/9df78eab33525d08d6e5fb8d27136e95/s/e/se19_sac_ce_sar_noir_chaine_tresse_e_4.jpg",
+      "heure": "30/5/2020",
+      "action": "delete",
+      "id": 51
+    },
+    {
+      "iduser": "Meriem",
+      "reference": "b",
+      "date": "l",
+      "heure": "30/5/2020",
+      "action": "delete",
+      "id": 52
+    },
+    {
+      "iduser": "Meriem",
+      "reference": "123",
+      "date": "url",
+      "heure": "30/5/2020",
+      "action": "delete",
+      "id": 53
+    },
+    {
+      "iduser": "Meriem",
+      "reference": "z",
+      "date": "v",
+      "heure": "30/5/2020",
+      "action": "delete",
+      "id": 54
+    },
+    {
+      "iduser": "Meriem",
+      "reference": "a",
+      "heure": "30/5/2020",
+      "action": "delete",
+      "id": 55
+    },
+    {
+      "iduser": "Meriem",
+      "reference": "a",
+      "image": "https://www.tanns.fr/1900-thickbox_default/sac-aime-bleu.jpg",
+      "date": "aaaa",
+      "heure": "30/5/2020",
+      "action": "delete",
+      "id": 56
+    },
+    {
+      "iduser": "Meriem",
+      "reference": "a",
+      "image": "y",
+      "date": "g",
+      "heure": "30/5/2020",
+      "action": "delete",
+      "id": 57
+    },
+    {
+      "iduser": "Meriem",
+      "reference": "a",
+      "image": "l",
+      "date": "mu",
+      "heure": "30/5/2020",
+      "action": "delete",
+      "id": 58
+    },
+    {
+      "iduser": "Meriem",
+      "reference": "a",
+      "image": "op",
+      "date": "p",
+      "heure": "30/5/2020",
+      "action": "delete",
+      "id": 59
+    },
+    {
+      "iduser": "Meriem",
+      "reference": "a",
+      "image": "o",
+      "date": "https://www.tanns.fr/1900-thickbox_default/sac-aime-bleu.jpg",
+      "heure": "30/5/2020",
+      "action": "delete",
+      "id": 60
     }
   ]
 }

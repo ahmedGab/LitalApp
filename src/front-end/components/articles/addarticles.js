@@ -20,6 +20,7 @@ const ModalExampleCloseIcon = ({idUser}) => {
   const [couleur, setCouleur]= useState("")
   const [phase,setPhase]= useState("")
   const [image,setImage]= useState("")
+  const [marque,setMarque]= useState("")
   const [commentaire,setCommentaire]= useState("")
   const[pictures,setPictures]=useState([])
   const users = useSelector(state => state.users);
@@ -95,8 +96,16 @@ if(!fields["couleur"]  ){
   formIsValid = false;
   err["couleur"] = "ce champs ne doit pas être pas vide ";
 }
+//marque
+if(!fields["marque"]  ){
+  formIsValid = false;
+  err["marque"] = "ce champs ne doit pas être pas vide ";
+}
 //image
-
+if(!fields["image"]  ){
+  formIsValid = false;
+  err["image"] = "ce champs ne doit pas être pas vide ";
+}
 
 //commentaire
 if(!fields["comment"]  ){
@@ -116,7 +125,7 @@ function articlesSubmit(e){
   e.preventDefault();
 
   if(handleValidation()){
-    dispatch(Addarticles(reference,nom,collection,type,mesure,quantity,couleur,phase,image,commentaire,name.join(""),new Date().getDate()+"/"+new Date().getMonth()+"/"+new Date().getFullYear(),new Date().getHours()+":"+(new Date().getMinutes()<10?'0':''+new Date().getMinutes()),))   
+    dispatch(Addarticles(reference,nom,collection,type,mesure,quantity,couleur,phase,marque,image,commentaire,name.join(""),new Date().getDate()+"/"+new Date().getMonth()+"/"+new Date().getFullYear(),new Date().getHours()+":"+(new Date().getMinutes()<10?'0':''+new Date().getMinutes()),))   
 
      alert(nom+ " a été ajouté dans votre liste des produits ");
   }
@@ -133,6 +142,7 @@ setRefrence(f["ref"])
   setMesure(f["mesure"])  
   setQuantity(f["quantity"])
   setType(f["type"])
+  setMarque(f["marque"])
    setImage(f["image"])
   setPhase(f["phase"])
   setCouleur(f["couleur"]) 
@@ -218,19 +228,25 @@ const maxMbFileSize = 5 * 1024 * 1024;
     </Form.Group>
     <Form.Group widths={2}>
     <div className="bloc-error">
-    
-             <p  style={{color: "#d93025"}}> {errors["image"]} </p> 
-
+    <Form.Input className="input-add" label="marqued'article" placeholder="marque d'article" type="text" 
+     onChange={e =>{handleChange("marque",e)}} value={fields["marque"]} />
+             <p  style={{color: "#d93025"}}> {errors["marque"]} </p> 
+            
        </div>
        <div className="bloc-error">
-    <textarea  className="input-add" label='Commentaire'placeholder="Ajouter un commentaire"   onChange={e =>{handleChange("comment",e)}} value={fields["comment"]}></textarea>
-    <p  style={{color: "#d93025"}}> {errors["comment"]} </p> 
+    <Form.Input  className="input-add" label='image'placeholder="image"   onChange={e =>{handleChange("image",e)}} value={fields["image"]}></Form.Input>
+    <p  style={{color: "#d93025"}}> {errors["image"]} </p> 
 
     </div>
       {/* <Form.Input label='Commentaire' placeholder='ajouter un commentaire' type="commentaire" 
       onChange={e => setCommentaire(e.target.value)} /> */}
+      
     </Form.Group>
+    <div className="bloc-error">
+    <textarea  className="input-add" label='Commentaire'placeholder="Ajouter un commentaire"   onChange={e =>{handleChange("comment",e)}} value={fields["comment"]}></textarea>
+    <p  style={{color: "#d93025"}}> {errors["comment"]} </p> 
 
+    </div>
    
     <div className="btn-modal">
       <Button color='blue' type="submit" >

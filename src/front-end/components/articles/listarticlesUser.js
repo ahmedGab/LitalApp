@@ -217,7 +217,7 @@ console.log(this.state.valuephase)
               <div className="ui main container" >
 <div className="ui raised segment" > 
 <div className="w">
-  <table id="example" className="ui table celled "  >
+  <table id="example" className="ui table celled " >
   <thead>
             <tr>
                 <th>Réference</th>
